@@ -6,22 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".interfaces.PersonaFormulario">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:onClick="btn_clickEliminarPersona"
-        android:text="Eliminar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGuardar" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -46,72 +30,12 @@
         android:layout_alignParentStart="true"
         android:layout_marginEnd="149dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
-        android:hint="Numero de Cedula"
+        android:layout_marginTop="28dp"
+        android:hint="Numero de DPI"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
-        android:id="@+id/buttonGuardar"
-        android:layout_width="246dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-
-        android:layout_marginBottom="148dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="68dp"
-        android:onClick="btn_clickGuardarPersona"
-        android:text="Enviar Alerta"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewCoor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Coordenadas"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCedula" />
-
-    <TextView
-        android:id="@+id/textViewDir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Direccion"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCoor" />
-
-    <EditText
-        android:id="@+id/editTextEmergencia"
-        android:layout_width="253dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Ingrese el Tipo de Emergencia"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerEmergencia" />
 
     <Spinner
         android:id="@+id/spinnerEmergencia"
@@ -119,9 +43,26 @@
         android:layout_height="23dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDir" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCedula" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="52dp"
+        android:background="@android:color/holo_red_light"
+        android:onClick="btn_clickGuardarPersona"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerEmergencia"
+        app:layout_constraintVertical_bias="0.094"
+        app:srcCompat="@mipmap/emergen" />
 
 </android.support.constraint.ConstraintLayout>

@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".interfaces.BuscarPersona" />
-        <activity android:name=".interfaces.PersonaFormulario"></activity>
+        <activity android:name=".interfaces.PersonaFormulario" />
+        <activity android:name=".interfaces.usuario" />
     </application>
 
 </manifest>
