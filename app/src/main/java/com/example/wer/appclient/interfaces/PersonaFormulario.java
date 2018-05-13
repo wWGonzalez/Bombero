@@ -87,11 +87,11 @@ public class PersonaFormulario extends AppCompatActivity {
     public void inicializar(){
         this.cedula = (EditText) findViewById(R.id.editTextCedula);
        // this.nombre = (EditText) findViewById(R.id.editTextNombre);
-        this.emergencia = (EditText) findViewById(R.id.editTextEmergencia);
+        //this.emergencia = (EditText) findViewById(R.id.editTextEmergencia);
       //  this.coordenadas = (EditText) findViewById(R.id.editTextCoordenadas);
       //  this.adress = (EditText) findViewById(R.id.editTextDireccion);
-        tv1 = findViewById(R.id.textViewCoor);
-        tv2 = findViewById((R.id.textViewDir));
+       // tv1 = findViewById(R.id.textViewCoor);
+      //  tv2 = findViewById((R.id.textViewDir));
         spinner1 = findViewById(R.id.spinnerEmergencia);
 
         String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
@@ -143,7 +143,7 @@ public class PersonaFormulario extends AppCompatActivity {
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
                     dir = (DirCalle.getAddressLine(0));
-                    tv2.setText(dir);
+                //    tv2.setText(dir);
                 //    nombre.setText(direccion);
                 }
 
@@ -161,7 +161,7 @@ public class PersonaFormulario extends AppCompatActivity {
     public void btn_clickGuardarPersona(View view){
         persona = new Persona();
         persona.setDpi(cedula.getText().toString().trim());
-        persona.setEmergencia(emergencia.getText().toString().trim());
+     // persona.setEmergencia(emergencia.getText().toString().trim());
      //   persona.setNombre(nombre.getText().toString().trim());
       //  persona.setApellido(apellido.getText().toString().trim());
 
@@ -371,7 +371,7 @@ public class PersonaFormulario extends AppCompatActivity {
 
             String Text = "Mi ubicacion actual es: " + "\n Lat = "
                    + loc.getLatitude() + "\n Long = " + loc.getLongitude();
-           tv1.setText(Text);
+            //tv1.setText(Text);
             //String Text =loc.getLatitude()+ loc.getLongitude()+"";
             coor= Text;
             //tv1.setText(Text);

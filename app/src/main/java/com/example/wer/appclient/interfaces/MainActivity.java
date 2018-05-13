@@ -1,6 +1,8 @@
 package com.example.wer.appclient.interfaces;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+
+
     }
     //para entrar al activity de buscar persona
     public void btn_buscarPersona(View view){
@@ -23,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     public void btn_formularioPersona(View view){
         Intent intent = new Intent(MainActivity.this, PersonaFormulario.class);
         intent.putExtra("operacion", "insertar");
+        startActivity(intent);
+    }
+    public void btn_formularioUsuario(View view){
+        Intent intent = new Intent(MainActivity.this, usuario.class);
+        //intent.putExtra("operacion", "insertar");
         startActivity(intent);
     }
 }
