@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AppClient</string>
+    <string name="title_activity_buscar_persona">BuscarPersona</string>
+
+    <string-array name="atributos_persona">
+        <item>Listar Todo</item>
+        <item>DPI</item>
+        <item>Nombre</item>
+        <item>Apellido</item>
+    </string-array>
+</resources>
