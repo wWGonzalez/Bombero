@@ -61,8 +61,8 @@ public class PersonaAdapter extends BaseAdapter {
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
             Direccion.setText(String.format("Direccion: %s", persona.getDireccion()));
             Emergencia.setText(String.format("Emergencia: %s", persona.getEmergencia()));
-            Emergencia.setText(String.format("Nombre: %s", persona.getNombre()));
-            Emergencia.setText(String.format("Telefono: %s", persona.getTelefono()));
+            Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
+            Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
 
 
             //Nombre.setText(String.format("Coordenadas: %s", persona.getNombre()));
