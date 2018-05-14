@@ -19,22 +19,21 @@
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre Usuario"
-            android:singleLine="true" />
+            android:hint="Nombre y Apellido" />
 
         <EditText
             android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="E-mail" />
+            android:hint="DPI"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Contrasena" />
+            android:hint="Telefono"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btn_signup"
@@ -42,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@android:color/holo_red_light"
-            android:text="Gurdar"
+            android:text="Guardar"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

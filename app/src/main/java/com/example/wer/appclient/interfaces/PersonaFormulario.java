@@ -83,11 +83,12 @@ public class PersonaFormulario extends AppCompatActivity {
             locationStart();
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }//finaliza onCreate
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -96,6 +97,7 @@ public class PersonaFormulario extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    */
 
     public void inicializar(){
         this.cedula = (EditText) findViewById(R.id.editTextCedula);
