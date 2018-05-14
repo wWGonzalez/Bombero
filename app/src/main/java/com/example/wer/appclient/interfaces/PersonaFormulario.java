@@ -53,8 +53,11 @@ public class PersonaFormulario extends AppCompatActivity {
     TextView tv1, tv2;
     Spinner spinner1;
 
-    Persona persona;
 
+
+    Persona persona;
+    String nombre="";
+    String telefono="";
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
@@ -67,6 +70,9 @@ public class PersonaFormulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persona_formulario);
+
+
+
         inicializar();
 
         Bundle bundle = getIntent().getExtras();
@@ -86,6 +92,9 @@ public class PersonaFormulario extends AppCompatActivity {
             locationStart();
         }
 
+        leerFicheroDPI();
+        leerFicheroNombre();
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -103,7 +112,7 @@ public class PersonaFormulario extends AppCompatActivity {
 
 
     public void inicializar(){
-        this.cedula = (EditText) findViewById(R.id.editTextCedula);
+        //this.cedula = (EditText) findViewById(R.id.editTextCedula);
 
 
        // this.nombre = (EditText) findViewById(R.id.editTextNombre);
@@ -121,7 +130,7 @@ public class PersonaFormulario extends AppCompatActivity {
     }//Finaliza inicializar variables
 
 
-    private void leerFichero() {
+    private void leerFicheroNombre() {
         try {
             BufferedReader fin =
                     new BufferedReader(
@@ -129,9 +138,28 @@ public class PersonaFormulario extends AppCompatActivity {
                                     openFileInput("Nombre.txt")));
 
             String texto = fin.readLine();
+            nombre = texto;
+           // Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+          //  this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+
+        }
+    }
+
+    private void leerFicheroDPI() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("DPI.txt")));
+
+            String texto = fin.readLine();
+            telefono = texto;
 
             // tv1.setText(texto);
-          //  this.nombre = texto;
+            //  this.nombre = texto;
             fin.close();
         } catch (Exception ex) {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
@@ -195,8 +223,8 @@ public class PersonaFormulario extends AppCompatActivity {
 
 
     public void btn_clickGuardarPersona(View view){
-        persona = new Persona();
-        persona.setDpi(cedula.getText().toString().trim());
+     //   persona = new Persona();
+    //    persona.setDpi(cedula.getText().toString().trim());
      // persona.setEmergencia(emergencia.getText().toString().trim());
      //   persona.setNombre(nombre.getText().toString().trim());
       //  persona.setApellido(apellido.getText().toString().trim());
@@ -249,7 +277,10 @@ public class PersonaFormulario extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject();
             try {
-                jsonObject.put("dpi", persona.getDpi());
+               // jsonObject.put("dpi", persona.getDpi());
+                jsonObject.put("nombre", nombre);
+                jsonObject.put("telefono", telefono);
+               // jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);
                 jsonObject.put("direccion", dir);
 

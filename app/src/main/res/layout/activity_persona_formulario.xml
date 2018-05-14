@@ -6,47 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".interfaces.PersonaFormulario">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Cedula"
-        app:layout_constraintBottom_toTopOf="@+id/editTextCedula"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextCedula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginEnd="149dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:hint="Numero de DPI"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <Spinner
         android:id="@+id/spinnerEmergencia"
         android:layout_width="253dp"
         android:layout_height="23dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="116dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCedula" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
