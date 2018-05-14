@@ -40,18 +40,21 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 
 
 public class PersonaFormulario extends AppCompatActivity {
-    EditText cedula, nombre, emergencia;
+    EditText cedula;
     EditText coordenadas, adress;
     TextView tv1, tv2;
     Spinner spinner1;
 
     Persona persona;
+
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
@@ -101,6 +104,8 @@ public class PersonaFormulario extends AppCompatActivity {
 
     public void inicializar(){
         this.cedula = (EditText) findViewById(R.id.editTextCedula);
+
+
        // this.nombre = (EditText) findViewById(R.id.editTextNombre);
         //this.emergencia = (EditText) findViewById(R.id.editTextEmergencia);
       //  this.coordenadas = (EditText) findViewById(R.id.editTextCoordenadas);
@@ -113,9 +118,25 @@ public class PersonaFormulario extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,opciones);
         spinner1.setAdapter(adapter);
 
+    }//Finaliza inicializar variables
 
 
+    private void leerFichero() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Nombre.txt")));
 
+            String texto = fin.readLine();
+
+            // tv1.setText(texto);
+          //  this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+
+        }
     }
 
     private void locationStart() {
@@ -355,7 +376,7 @@ public class PersonaFormulario extends AppCompatActivity {
             super.onPostExecute(persona);
             if (persona != null){
                 cedula.setText(persona.getDpi());
-                nombre.setText(persona.getNombre());
+                //nombre.setText(persona.getNombre());
              //   adress.setText(persona.getApellido());
             } else
                 Toast.makeText(PersonaFormulario.this, "Problemas al obtener el objeto", Toast.LENGTH_LONG).show();

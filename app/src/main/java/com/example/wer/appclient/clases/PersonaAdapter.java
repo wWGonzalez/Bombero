@@ -46,6 +46,12 @@ public class PersonaAdapter extends BaseAdapter {
         TextView Coordenadas = (TextView) view.findViewById(R.id.textView6);
         TextView Direccion = (TextView) view.findViewById(R.id.textView7);
         TextView Emergencia = (TextView) view.findViewById(R.id.textView8);
+        TextView Telefono = (TextView) view.findViewById(R.id.textView9);
+        TextView Nombre = (TextView) view.findViewById(R.id.textView10);
+
+
+
+
 
       //  TextView Apellido = (TextView) view.findViewById(R.id.textView7);
 
@@ -55,6 +61,8 @@ public class PersonaAdapter extends BaseAdapter {
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
             Direccion.setText(String.format("Direccion: %s", persona.getDireccion()));
             Emergencia.setText(String.format("Emergencia: %s", persona.getEmergencia()));
+            Emergencia.setText(String.format("Nombre: %s", persona.getNombre()));
+            Emergencia.setText(String.format("Telefono: %s", persona.getTelefono()));
 
 
             //Nombre.setText(String.format("Coordenadas: %s", persona.getNombre()));

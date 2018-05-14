@@ -4,42 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wer.appclient.interfaces.usuario">
+    tools:context="com.example.wer.appclient.clases.crearRegistro">
 
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="60dp">
 
-<<<<<<< HEAD
+
         <EditText
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre y Apellido" />
-
-        <EditText
-            android:id="@+id/input_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="DPI"
-            android:inputType="textEmailAddress" />
+            android:hint="Nombre Usuario"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefono"
-            android:inputType="textPassword" />
+          />
 
-=======
->>>>>>> 2b1440a0cf51c24d303774bdb4b6b0ff73e1d51c
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@android:color/holo_red_light"
-            android:text="Guardar"
+            android:onClick="crearFicheroTelefono"
+            android:text="Gurdar"
             android:textColor="@android:color/white" />
 
-
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
