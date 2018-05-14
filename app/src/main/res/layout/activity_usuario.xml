@@ -34,5 +34,5 @@
             android:background="@android:color/holo_red_light"
             android:text="Guardar"
             android:textColor="@android:color/white" />
-        
+
 </android.support.constraint.ConstraintLayout>
