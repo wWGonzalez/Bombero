@@ -8,7 +8,7 @@
 
 
 
-<<<<<<< HEAD
+
         <EditText
             android:id="@+id/input_name"
             android:layout_width="match_parent"
@@ -29,8 +29,7 @@
             android:hint="Telefono"
             android:inputType="textPassword" />
 
-=======
->>>>>>> 2b1440a0cf51c24d303774bdb4b6b0ff73e1d51c
+
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
