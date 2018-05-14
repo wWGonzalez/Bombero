@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.wer.appclient.interfaces.usuario">
 
-
         <EditText
             android:id="@+id/input_name"
             android:layout_width="match_parent"
@@ -27,7 +26,6 @@
             android:hint="Telefono"
             android:inputType="textPassword" />
 
-
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"
@@ -36,7 +34,5 @@
             android:background="@android:color/holo_red_light"
             android:text="Guardar"
             android:textColor="@android:color/white" />
-
-
-
+        
 </android.support.constraint.ConstraintLayout>
