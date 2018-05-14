@@ -30,19 +30,33 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:src="@drawable/ic_launcher"
-                >
+                android:src="@drawable/imagen"
+                />
 
-
-            </ImageView>
+            <LinearLayout
+                android:layout_widtch="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                />
+                <TextView
+                    android:id="@+id/title"
+                    android:text="Gerber Maldonado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/title"
+                    />
+                <TextView
+                    android:id="@+id/twitter"
+                    android:text="GerberMal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
 
         </linearLayout>
 
     </android.support.v7.widget.CardView>
-
-
-
-
-
 
 </LinearLayout>
