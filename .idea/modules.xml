@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-      <module fileurl="file://C:\Users\wer\Desktop\AppClient-master\AppClient.iml" filepath="C:\Users\wer\Desktop\AppClient-master\AppClient.iml" />
-=======
->>>>>>> 89b95d0967dcb898f225ae7954c8aa00d521ec15
       <module fileurl="file://$PROJECT_DIR$/Bombero.iml" filepath="$PROJECT_DIR$/Bombero.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
