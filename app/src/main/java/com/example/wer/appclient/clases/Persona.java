@@ -13,7 +13,6 @@ public class Persona {
     String emergencia;
     String telefono;
 
-
     public String getCoordenadas() {
         return coordenadas;
     }
@@ -29,7 +28,6 @@ public class Persona {
     public void setDpi(String dpi) {
         this.dpi = dpi;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -60,8 +58,6 @@ public class Persona {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
-
 
     public static ArrayList<Persona> obtenerPersonas(String json){
         Gson gson = new Gson();

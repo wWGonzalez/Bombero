@@ -25,10 +25,7 @@ public class crearRegistro extends AppCompatActivity {
         setContentView(R.layout.activity_crear_registro);
         et1 = findViewById(R.id.input_name);
         et2 = findViewById(R.id.input_password);
-
-
     }
-
 
     public void crearFicheroNombre(){
         try
@@ -38,18 +35,14 @@ public class crearRegistro extends AppCompatActivity {
                             openFileOutput("Nombre.txt", Context.MODE_PRIVATE));
 
             fout.write(et1.getText().toString());
-
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
-
         }
         catch (Exception ex)
         {
             Log.e("Ficheros", "Error al escribir fichero a memoria interna");
         }
     }//finish crearFichero
-
-
 
     public void crearFicheroTelefono(View view){
         try
@@ -57,28 +50,16 @@ public class crearRegistro extends AppCompatActivity {
             OutputStreamWriter fout=
                     new OutputStreamWriter(
                             openFileOutput("DPI.txt", Context.MODE_PRIVATE));
-
             fout.write(et2.getText().toString());
-
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
-
             crearFicheroNombre();
             Intent o = new Intent(this,MainActivity.class);
             startActivity(o);
-
-
-
         }
         catch (Exception ex)
         {
             Log.e("Ficheros", "Error al escribir fichero a memoria interna");
         }
     }//finish crearFichero
-
-
-
-
-
-
 }

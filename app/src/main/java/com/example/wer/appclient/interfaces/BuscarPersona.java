@@ -39,7 +39,6 @@ public class BuscarPersona extends AppCompatActivity {
     ListView listViewPersona;
     TextView tv1,tv2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,6 @@ public class BuscarPersona extends AppCompatActivity {
         tv1 = findViewById(R.id.textViewG1);
         tv2 = findViewById(R.id.textViewG2);
 
-
         new getPersonas().execute("http://wzwer.pythonanywhere.com/rest/alert/");
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -62,7 +60,6 @@ public class BuscarPersona extends AppCompatActivity {
             locationStart();
         }
     }
-
 
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -93,7 +90,6 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }//Finaliza onRequest
 
-
     public void setLocation(Location loc) {
         //Obtener la direccion de la calle a partir de la latitud y la longitud
         if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
@@ -112,8 +108,6 @@ public class BuscarPersona extends AppCompatActivity {
             }
         }
     }//Finaliza setLocation
-
-
 
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
@@ -169,12 +163,6 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
-
-
-
-
-
-
     //get personas
     public class getPersonas extends AsyncTask<String, Void, String>{
         public String doInBackground(String... params) {
@@ -212,7 +200,6 @@ public class BuscarPersona extends AppCompatActivity {
                                     personas_aux.add(personas.get(i));
                                 }
                                 break;
-
                         }
                     }
                 }
@@ -228,7 +215,6 @@ public class BuscarPersona extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
-
                 }
             }
         }

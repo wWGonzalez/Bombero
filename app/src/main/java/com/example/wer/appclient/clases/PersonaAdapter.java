@@ -49,12 +49,7 @@ public class PersonaAdapter extends BaseAdapter {
         TextView Telefono = (TextView) view.findViewById(R.id.textView9);
         TextView Nombre = (TextView) view.findViewById(R.id.textView10);
 
-
-
-
-
       //  TextView Apellido = (TextView) view.findViewById(R.id.textView7);
-
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
             DPI.setText(String.format("DPI: %s", persona.getDpi()));
@@ -63,7 +58,6 @@ public class PersonaAdapter extends BaseAdapter {
             Emergencia.setText(String.format("Emergencia: %s", persona.getEmergencia()));
             Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
             Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
-
 
             //Nombre.setText(String.format("Coordenadas: %s", persona.getNombre()));
 

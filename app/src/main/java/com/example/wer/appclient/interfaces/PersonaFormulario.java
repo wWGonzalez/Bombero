@@ -46,22 +46,15 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 
-
 public class PersonaFormulario extends AppCompatActivity {
-    EditText cedula;
-    EditText coordenadas, adress;
-    TextView tv1, tv2;
+    //EditText cedula;
     Spinner spinner1;
-
-
-
     Persona persona;
     String nombre="";
     String telefono="";
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
-
 
     //operacion: insertar, actualizar
 
@@ -70,8 +63,6 @@ public class PersonaFormulario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persona_formulario);
-
-
 
         inicializar();
 
@@ -94,12 +85,10 @@ public class PersonaFormulario extends AppCompatActivity {
 
         leerFicheroDPI();
         leerFicheroNombre();
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }//finaliza onCreate
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -110,25 +99,22 @@ public class PersonaFormulario extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     public void inicializar(){
-        //this.cedula = (EditText) findViewById(R.id.editTextCedula);
+        /*this.cedula = (EditText) findViewById(R.id.editTextCedula);
+          this.nombre = (EditText) findViewById(R.id.editTextNombre);
+          this.emergencia = (EditText) findViewById(R.id.editTextEmergencia);
+          this.coordenadas = (EditText) findViewById(R.id.editTextCoordenadas);
+          this.adress = (EditText) findViewById(R.id.editTextDireccion);
+          tv1 = findViewById(R.id.textViewCoor);
+          tv2 = findViewById((R.id.textViewDir));
+        */
 
-
-       // this.nombre = (EditText) findViewById(R.id.editTextNombre);
-        //this.emergencia = (EditText) findViewById(R.id.editTextEmergencia);
-      //  this.coordenadas = (EditText) findViewById(R.id.editTextCoordenadas);
-      //  this.adress = (EditText) findViewById(R.id.editTextDireccion);
-       // tv1 = findViewById(R.id.textViewCoor);
-      //  tv2 = findViewById((R.id.textViewDir));
         spinner1 = findViewById(R.id.spinnerEmergencia);
-
         String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item,opciones);
         spinner1.setAdapter(adapter);
 
     }//Finaliza inicializar variables
-
 
     private void leerFicheroNombre() {
         try {
@@ -136,11 +122,10 @@ public class PersonaFormulario extends AppCompatActivity {
                     new BufferedReader(
                             new InputStreamReader(
                                     openFileInput("Nombre.txt")));
-
             String texto = fin.readLine();
             nombre = texto;
-           // Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
-          //  this.nombre = texto;
+           //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+           //this.nombre = texto;
             fin.close();
         } catch (Exception ex) {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
@@ -154,7 +139,6 @@ public class PersonaFormulario extends AppCompatActivity {
                     new BufferedReader(
                             new InputStreamReader(
                                     openFileInput("DPI.txt")));
-
             String texto = fin.readLine();
             telefono = texto;
 
@@ -163,7 +147,6 @@ public class PersonaFormulario extends AppCompatActivity {
             fin.close();
         } catch (Exception ex) {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-
         }
     }
 
@@ -183,8 +166,8 @@ public class PersonaFormulario extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
 
-   //     tv1.setText("Localizacion agregada");
-   //     tv2.setText("");
+        //tv1.setText("Localizacion agregada");
+        //tv2.setText("");
     }//Finaliza locationStart
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -195,7 +178,6 @@ public class PersonaFormulario extends AppCompatActivity {
             }
         }
     }//Finaliza onRequest
-
 
     public void setLocation(Location loc) {
         //Obtener la direccion de la calle a partir de la latitud y la longitud
@@ -217,17 +199,12 @@ public class PersonaFormulario extends AppCompatActivity {
         }
     }//Finaliza setLocation
 
-
-
-
-
-
     public void btn_clickGuardarPersona(View view){
-     //   persona = new Persona();
-    //    persona.setDpi(cedula.getText().toString().trim());
-     // persona.setEmergencia(emergencia.getText().toString().trim());
-     //   persona.setNombre(nombre.getText().toString().trim());
-      //  persona.setApellido(apellido.getText().toString().trim());
+        //persona = new Persona();
+        //persona.setDpi(cedula.getText().toString().trim());
+        //persona.setEmergencia(emergencia.getText().toString().trim());
+        //persona.setNombre(nombre.getText().toString().trim());
+        //persona.setApellido(apellido.getText().toString().trim());
 
         if (this.operacion.equals("actualizar"))
             new ActualizarPersona().execute();
@@ -266,7 +243,6 @@ public class PersonaFormulario extends AppCompatActivity {
         }
     }
 
-
     //Insertar Persona
     private class InsertarPersona extends AsyncTask<Void, Void, Boolean> {
         public Boolean doInBackground(Void... params) {
@@ -286,7 +262,7 @@ public class PersonaFormulario extends AppCompatActivity {
 
                 //jsonObject.put("emergencia", persona.getEmergencia());
 
-               // String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
+                //String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
 
                 String seleccion = spinner1.getSelectedItem().toString();
 
@@ -307,12 +283,6 @@ public class PersonaFormulario extends AppCompatActivity {
 
                     }
 
-
-
-
-
-
-
                 StringEntity stringEntity = new StringEntity(jsonObject.toString());
                 httpPost.setEntity(stringEntity);
                 httpClient.execute(httpPost);
@@ -329,7 +299,6 @@ public class PersonaFormulario extends AppCompatActivity {
             }
         }
 
-
         public void onPostExecute(Boolean result){
             if(result){
                 Toast.makeText(PersonaFormulario.this, "Insertado Correctamente", Toast.LENGTH_LONG).show();
@@ -337,8 +306,6 @@ public class PersonaFormulario extends AppCompatActivity {
                 Toast.makeText(PersonaFormulario.this, "Problema al Insertar", Toast.LENGTH_LONG).show();
         }
     }
-
-
 
     private class ActualizarPersona extends AsyncTask<Void, Void, Boolean>{
         public Boolean doInBackground(Void... params) {
@@ -391,7 +358,7 @@ public class PersonaFormulario extends AppCompatActivity {
 
                 persona.setDpi(jsonObject.getString("dpi"));
                 persona.setNombre(jsonObject.getString("nombre"));
-         //       persona.setApellido(jsonObject.getString("apellido"));
+                //persona.setApellido(jsonObject.getString("apellido"));
 
                 return persona;
             } catch (IOException e) {
@@ -406,15 +373,13 @@ public class PersonaFormulario extends AppCompatActivity {
         public void onPostExecute(Persona persona){
             super.onPostExecute(persona);
             if (persona != null){
-                cedula.setText(persona.getDpi());
+                //cedula.setText(persona.getDpi());
                 //nombre.setText(persona.getNombre());
-             //   adress.setText(persona.getApellido());
+                //adress.setText(persona.getApellido());
             } else
                 Toast.makeText(PersonaFormulario.this, "Problemas al obtener el objeto", Toast.LENGTH_LONG).show();
         }
-
     }
-
 
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
@@ -447,14 +412,14 @@ public class PersonaFormulario extends AppCompatActivity {
 
         @Override
         public void onProviderDisabled(String provider) {
-            // Este metodo se ejecuta cuando el GPS es desactivado
-           // tv1.setText("GPS Desactivado");
+            //Este metodo se ejecuta cuando el GPS es desactivado
+            //tv1.setText("GPS Desactivado");
         }
 
         @Override
         public void onProviderEnabled(String provider) {
             // Este metodo se ejecuta cuando el GPS es activado
-           // tv1.setText("GPS Activado");
+            // tv1.setText("GPS Activado");
         }
 
         @Override
@@ -472,7 +437,5 @@ public class PersonaFormulario extends AppCompatActivity {
             }
         }
     }
-
-
 
 }
