@@ -33,7 +33,6 @@ import android.widget.Toast;
 import com.example.wer.appclient.R;
 //import com.example.wer.appclient.clases.Archivo;
 import com.example.wer.appclient.clases.Persona;
-import com.example.wer.appclient.clases.crearRegistro;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;

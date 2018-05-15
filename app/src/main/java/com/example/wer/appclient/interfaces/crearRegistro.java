@@ -1,4 +1,4 @@
-package com.example.wer.appclient.clases;
+package com.example.wer.appclient.interfaces;
 
 import android.content.Context;
 import android.content.Intent;
