@@ -3,45 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="300dp"
-    android:layout_height="300dp">
+    android:layout_height="250dp">
 
     <ImageView
         android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
-        android:contentDescription="@string/app_name"
-        android:layout_height="100dp" />
+        android:contentDescription="@string/app_name" />
+
     <TextView
         android:layout_width="wrap_content"
-        android:text="@string/app_name"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="18sp"
         android:layout_margin="5dp"
-        android:layout_height="wrap_content" />
+        android:text="@string/app_name"
+        android:textSize="18sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_height="wrap_content">
+        android:layout_marginBottom="5dp">
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_gravity="center|left"
-            android:text="Hello"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
-            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/hello"
-            android:layout_height="wrap_content" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_gravity="center|right"
-            android:text="Close"
-            android:layout_margin="5dp"
-            android:textStyle="bold"
             style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:layout_margin="5dp"
+            android:text="Aceptar"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/close"
-            android:layout_height="wrap_content" />
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_margin="5dp"
+            android:text="Cancelar"
+            android:textStyle="bold" />
     </FrameLayout>
 </LinearLayout>
