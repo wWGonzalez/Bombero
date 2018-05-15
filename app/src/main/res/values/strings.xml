@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppClient</string>
+    <string name="app_name">FIREFIGHTER</string>
     <string name="title_activity_buscar_persona">BuscarPersona</string>
 
     <string-array name="atributos_persona">

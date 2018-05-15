@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
             fin.close();
         } catch (Exception ex) {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-
         }
     }
 
@@ -134,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
                                     openFileInput("DPI.txt")));
             String texto = fin.readLine();
             telefono = texto;
-
             // tv1.setText(texto);
             //  this.nombre = texto;
             fin.close();
@@ -158,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
         }
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
-
         //tv1.setText("Localizacion agregada");
         //tv2.setText("");
     }//Finaliza locationStart
@@ -184,9 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     dir = (DirCalle.getAddressLine(0));
                     //    tv2.setText(dir);
                     //    nombre.setText(direccion);
-
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -210,15 +205,11 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject.put("coordenadas", coor);
                 jsonObject.put("direccion", dir);
                 jsonObject.put("emergencia", emergencia);
-
                 //jsonObject.put("emergencia", persona.getEmergencia());
-
                 //String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
-
                 StringEntity stringEntity = new StringEntity(jsonObject.toString());
                 httpPost.setEntity(stringEntity);
                 httpClient.execute(httpPost);
-
                 return true;
             } catch (org.json.JSONException e) {
                 return false;
@@ -250,7 +241,6 @@ public class MainActivity extends AppCompatActivity {
         public void setMainActivity(MainActivity mainActivity) {
             this.mainActivity = mainActivity;
         }
-
         @Override
         public void onLocationChanged(Location loc) {
             // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
@@ -313,10 +303,7 @@ public class MainActivity extends AppCompatActivity {
                     switch(finalI) {
                         case 0:
                             MyCustomAlertDialog("Maternidad");
-
-
                             break;
-
                         case 1:
                             MyCustomAlertDialog("Accidente");
                            // sentenciaN;
@@ -325,15 +312,12 @@ public class MainActivity extends AppCompatActivity {
                         case 2:
                             MyCustomAlertDialog("Incendio");
                            // sentenciaN;
-
                             break;
                         case 3:
                             MyCustomAlertDialog("Primeros Auxilios");
                            // sentenciaN;
-
                             break;
                     }
-
                 }
             });
         }
@@ -342,7 +326,6 @@ public class MainActivity extends AppCompatActivity {
     //Llamar menu emergente
     public void MyCustomAlertDialog(String m){
         final String emerg =m;
-
 
         MyDialog = new Dialog(MainActivity.this);
         MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -370,8 +353,6 @@ public class MainActivity extends AppCompatActivity {
             Drawable myDrawable = getResources().getDrawable(R.drawable.team_time);
             image.setImageDrawable(myDrawable);
         }
-
-
 
         hello.setEnabled(true);
         close.setEnabled(true);
