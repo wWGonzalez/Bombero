@@ -209,7 +209,7 @@ public class BuscarPersona extends AppCompatActivity {
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent i = new Intent(BuscarPersona.this, PersonaFormulario.class);
+                            Intent i = new Intent(BuscarPersona.this, MainActivity.class);
                             i.putExtra("operacion", "actualizar");
                             i.putExtra("id_persona", ((Persona) parent.getAdapter().getItem(position)).getDpi());
                             startActivity(i);

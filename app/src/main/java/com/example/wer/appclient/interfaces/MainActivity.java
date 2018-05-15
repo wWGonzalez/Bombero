@@ -69,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
         setSingleEvent(mainGrid);
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
-
-
 
         tv1 = findViewById(R.id.txtUSer);
         leerFichero(); // buscar datos denttro del fichero
@@ -100,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
            // Intent o = new Intent(this,PersonaFormulario.class);
            // startActivity(o);
-
         }
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -199,9 +193,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }//Finaliza setLocation
 
-
-
-
     //Insertar Persona
     private class InsertarPersona extends AsyncTask<Void, Void, Boolean> {
         public Boolean doInBackground(Void... params) {
@@ -220,11 +211,9 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject.put("direccion", dir);
                 jsonObject.put("emergencia", emergencia);
 
-
                 //jsonObject.put("emergencia", persona.getEmergencia());
 
                 //String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
-
 
                 StringEntity stringEntity = new StringEntity(jsonObject.toString());
                 httpPost.setEntity(stringEntity);
@@ -307,8 +296,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void setSingleEvent(GridLayout mainGrid) {
         //Loop all child item of Main Grid
         for (int i = 0; i < mainGrid.getChildCount(); i++) {
@@ -352,14 +339,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     //Llamar menu emergente
+<<<<<<< HEAD
 
     public void MyCustomAlertDialog(String m) {
         final String emerg = m;
 
 
 
+=======
+    public void MyCustomAlertDialog(String m){
+        final String emerg =m;
+>>>>>>> a82ebeb461cad986d96bf40071da31d2d81facac
 
         MyDialog = new Dialog(MainActivity.this);
         MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -413,11 +404,14 @@ public class MainActivity extends AppCompatActivity {
         MyDialog.show();
     }
 
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> a82ebeb461cad986d96bf40071da31d2d81facac
     public void send() {
         Intent i = new Intent(this, crearRegistro.class);
         // i.putExtra("dato",et1.getText().toString());
@@ -430,11 +424,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
     public void btn_formularioPersona(View view){
         Intent intent = new Intent(MainActivity.this, PersonaFormulario.class);
         intent.putExtra("operacion", "insertar");
         startActivity(intent);
-    }
+    }*/
+
     public void btn_formularioUsuario(View view){
         Intent intent = new Intent(MainActivity.this, usuario.class);
         //intent.putExtra("operacion", "insertar");
