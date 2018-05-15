@@ -340,17 +340,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Llamar menu emergente
-<<<<<<< HEAD
-
-    public void MyCustomAlertDialog(String m) {
-        final String emerg = m;
 
 
 
-=======
     public void MyCustomAlertDialog(String m){
         final String emerg =m;
->>>>>>> a82ebeb461cad986d96bf40071da31d2d81facac
+
 
         MyDialog = new Dialog(MainActivity.this);
         MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -404,14 +399,6 @@ public class MainActivity extends AppCompatActivity {
         MyDialog.show();
     }
 
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> a82ebeb461cad986d96bf40071da31d2d81facac
     public void send() {
         Intent i = new Intent(this, crearRegistro.class);
         // i.putExtra("dato",et1.getText().toString());
