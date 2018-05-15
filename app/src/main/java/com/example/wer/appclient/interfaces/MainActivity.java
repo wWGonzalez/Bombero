@@ -87,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
         if(dato.equals("")){
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
             send();
-           // Intent o = new Intent(this,Archivo.class);
-           // startActivity(o);
+
         }
         else{
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
@@ -155,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
         }
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
-        //tv1.setText("Localizacion agregada");
-        //tv2.setText("");
     }//Finaliza locationStart
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -203,8 +200,6 @@ public class MainActivity extends AppCompatActivity {
                 jsonObject.put("coordenadas", coor);
                 jsonObject.put("direccion", dir);
                 jsonObject.put("emergencia", emergencia);
-                //jsonObject.put("emergencia", persona.getEmergencia());
-                //String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
                 StringEntity stringEntity = new StringEntity(jsonObject.toString());
                 httpPost.setEntity(stringEntity);
                 httpClient.execute(httpPost);
@@ -293,11 +288,6 @@ public class MainActivity extends AppCompatActivity {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                  //  Intent intent = new Intent(MainActivity.this,MenuEmergente.class);
-                   // intent.putExtra("info","This is activity from card item index  "+finalI);
-                   // startActivity(intent);
-
                     switch(finalI) {
                         case 0:
                             MyCustomAlertDialog("Maternidad");

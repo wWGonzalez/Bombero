@@ -34,7 +34,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class BuscarPersona extends AppCompatActivity {
-    Spinner spinnerParametro;
     EditText dato;
     ListView listViewPersona;
     TextView tv1,tv2;
@@ -44,16 +43,14 @@ public class BuscarPersona extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_persona);
         inicializar();
+        //Barra Hacia atras
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     public void inicializar(){
-        this.spinnerParametro = (Spinner) findViewById(R.id.spinnerPersonParametros);
-       // this.dato = (EditText) findViewById(R.id.editTextDato);
         this.listViewPersona = (ListView) findViewById(R.id.listViewPersonas);
         tv1 = findViewById(R.id.textViewG1);
         tv2 = findViewById(R.id.textViewG2);
-
         new getPersonas().execute("http://wzwer.pythonanywhere.com/rest/alert/");
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
@@ -102,7 +99,6 @@ public class BuscarPersona extends AppCompatActivity {
                     tv2.setText("Mi direccion es: \n"
                             + DirCalle.getAddressLine(0));
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -112,7 +108,6 @@ public class BuscarPersona extends AppCompatActivity {
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
         BuscarPersona mainActivity;
-
         public BuscarPersona getMainActivity() {
             return mainActivity;
         }
@@ -179,30 +174,8 @@ public class BuscarPersona extends AppCompatActivity {
             }else{
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
+                personas_aux = personas;
 
-                if(spinnerParametro.getSelectedItem().equals(("Listar Todo"))){
-                    personas_aux = personas;
-                }else{
-                    for (int i = 0; i < personas.size(); i++){
-                        switch (spinnerParametro.getSelectedItem().toString()){
-                            case "DPI":
-                                if(personas.get(i).getDpi().equals(dato.getText().toString().trim())){
-                                    personas_aux.add(personas.get(i));
-                                }
-                                break;
-                            case "Coordenadas":
-                                if(personas.get(i).getCoordenadas().equals(dato.getText().toString().trim())){
-                                    personas_aux.add(personas.get(i));
-                                }
-                                break;
-                            case "Direccion":
-                                if(personas.get(i).getDireccion().equals(dato.getText().toString().trim())){
-                                    personas_aux.add(personas.get(i));
-                                }
-                                break;
-                        }
-                    }
-                }
                 if(personas_aux.size() != 0){
                     PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                     listViewPersona.setAdapter(adapter);
