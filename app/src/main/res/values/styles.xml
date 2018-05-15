@@ -8,9 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="title">
-        <item name="android:textSize">20sp</item>
-        <item name="android:color">@android:color/white</item>
-    </style>
-
 </resources>
