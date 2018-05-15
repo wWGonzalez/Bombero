@@ -175,7 +175,7 @@ public class BuscarPersona extends AppCompatActivity {
 
         public void onPostExecute(String result){
             if(result.isEmpty()){
-                Toast.makeText(BuscarPersona.this,"No se generaron resultados",Toast.LENGTH_LONG).show();
+                Toast.makeText(BuscarPersona.this,"No se generaron resultados Revisar Conexion",Toast.LENGTH_LONG).show();
             }else{
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
