@@ -340,12 +340,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Llamar menu emergente
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 84cdc9f819dd7d4db4a0eaead508a7641b04440b
     public void MyCustomAlertDialog(String m){
         final String emerg =m;
 
