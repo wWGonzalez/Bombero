@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".interfaces.BuscarPersona" />
-        <activity android:name=".interfaces.usuario" />
         <activity android:name=".interfaces.crearRegistro" />
         <activity android:name=".interfaces.MenuEmergente"></activity>
     </application>

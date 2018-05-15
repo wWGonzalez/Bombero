@@ -200,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
                 // jsonObject.put("dpi", persona.getDpi());
                 jsonObject.put("nombre", nombre);
                 jsonObject.put("telefono", telefono);
-                // jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);
                 jsonObject.put("direccion", dir);
                 jsonObject.put("emergencia", emergencia);
@@ -385,19 +384,6 @@ public class MainActivity extends AppCompatActivity {
     //para entrar al activity de buscar persona
     public void btn_buscarPersona(View view){
         Intent intent = new Intent(MainActivity.this, BuscarPersona.class);
-        startActivity(intent);
-    }
-
-    /*
-    public void btn_formularioPersona(View view){
-        Intent intent = new Intent(MainActivity.this, PersonaFormulario.class);
-        intent.putExtra("operacion", "insertar");
-        startActivity(intent);
-    }*/
-
-    public void btn_formularioUsuario(View view){
-        Intent intent = new Intent(MainActivity.this, usuario.class);
-        //intent.putExtra("operacion", "insertar");
         startActivity(intent);
     }
 
