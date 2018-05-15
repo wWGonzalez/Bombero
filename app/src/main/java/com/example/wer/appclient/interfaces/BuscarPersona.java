@@ -74,8 +74,8 @@ public class BuscarPersona extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
 
-        tv1.setText("Localizacion agregada");
-        tv2.setText("");
+        tv1.setText("Esperando Datos...");
+        tv2.setText("Esperando Datos...");
     }//Finaliza locationStart
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
