@@ -111,12 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
     }//Finish onCreate
 
-
-<<<<<<< HEAD
-                    Intent intent = new Intent(MainActivity.this,BuscarPersona.class);
-                    intent.putExtra("info","This is activity from card item index  "+finalI);
-                    startActivity(intent);
-=======
     //Leer Ficheros
     private void leerFicheroNombre() {
         try {
@@ -193,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                     dir = (DirCalle.getAddressLine(0));
                     //    tv2.setText(dir);
                     //    nombre.setText(direccion);
->>>>>>> 5b4207fdb829369a44c4675d1a67ff748b4af201
+
                 }
 
             } catch (IOException e) {
