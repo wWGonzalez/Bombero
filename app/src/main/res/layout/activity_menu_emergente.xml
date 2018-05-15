@@ -13,10 +13,7 @@
         android:layout_margin="5dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/app_name" />
-<<<<<<< HEAD
-=======
 
->>>>>>> a82ebeb461cad986d96bf40071da31d2d81facac
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
