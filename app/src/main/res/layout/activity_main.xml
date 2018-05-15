@@ -26,7 +26,6 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/button"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,20 +39,6 @@
         android:onClick="btn_buscarPersona"
         android:text="Ubicacion "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="1dp"
-        android:onClick="btn_formularioPersona"
-        android:text="Enviar Alerta"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/txtUSer"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
@@ -249,15 +234,8 @@
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
-
             </android.support.v7.widget.CardView>
-
         </GridLayout>
-
     </LinearLayout>
-
-
-
-
 
 </android.support.constraint.ConstraintLayout>

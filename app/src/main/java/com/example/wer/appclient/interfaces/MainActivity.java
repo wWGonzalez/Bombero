@@ -1,30 +1,73 @@
 package com.example.wer.appclient.interfaces;
 
+import android.Manifest;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 //import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.content.pm.PackageManager;
 //import android.preference.PreferenceManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
+import android.os.AsyncTask;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wer.appclient.R;
 //import com.example.wer.appclient.clases.Archivo;
+import com.example.wer.appclient.clases.Persona;
 import com.example.wer.appclient.clases.crearRegistro;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button show;
+    Dialog MyDialog;
+    Button hello;
+    Button close;
 
     TextView tv1;
     private String dato="";
     GridLayout mainGrid;
+
+    //Variables para Post
+    public String emergencia;
+    Spinner spinner1;
+    Persona persona;
+    String nombre="";
+    String telefono="";
+    String id_persona;
+    String dir; //Se almacena la direccion
+    String coor; //Se almacenan las coordenadas
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         //Set Event
         setSingleEvent(mainGrid);
         //setToggleEvent(mainGrid);
+        Bundle bundle = getIntent().getExtras();
+
+
 
         tv1 = findViewById(R.id.txtUSer);
         leerFichero(); // buscar datos denttro del fichero
@@ -54,7 +100,217 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
+        } else {
+            locationStart();
+        }
+
+        leerFicheroDPI();
+        leerFicheroNombre();
+
     }//Finish onCreate
+
+
+<<<<<<< HEAD
+                    Intent intent = new Intent(MainActivity.this,BuscarPersona.class);
+                    intent.putExtra("info","This is activity from card item index  "+finalI);
+                    startActivity(intent);
+=======
+    //Leer Ficheros
+    private void leerFicheroNombre() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Nombre.txt")));
+            String texto = fin.readLine();
+            nombre = texto;
+            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+            //this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+
+        }
+    }
+
+    private void leerFicheroDPI() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("DPI.txt")));
+            String texto = fin.readLine();
+            telefono = texto;
+
+            // tv1.setText(texto);
+            //  this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
+
+    private void locationStart() {
+        LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        MainActivity.Localizacion Local = new MainActivity.Localizacion();
+        Local.setMainActivity(this);
+        final boolean gpsEnabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (!gpsEnabled) {
+            Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(settingsIntent);
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
+            return;
+        }
+        mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
+        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
+
+        //tv1.setText("Localizacion agregada");
+        //tv2.setText("");
+    }//Finaliza locationStart
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == 1000) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                locationStart();
+                return;
+            }
+        }
+    }//Finaliza onRequest
+
+    public void setLocation(Location loc) {
+        //Obtener la direccion de la calle a partir de la latitud y la longitud
+        if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
+            try {
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                List<Address> list = geocoder.getFromLocation(
+                        loc.getLatitude(), loc.getLongitude(), 1);
+                if (!list.isEmpty()) {
+                    Address DirCalle = list.get(0);
+                    dir = (DirCalle.getAddressLine(0));
+                    //    tv2.setText(dir);
+                    //    nombre.setText(direccion);
+>>>>>>> 5b4207fdb829369a44c4675d1a67ff748b4af201
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }//Finaliza setLocation
+
+
+
+
+    //Insertar Persona
+    private class InsertarPersona extends AsyncTask<Void, Void, Boolean> {
+        public Boolean doInBackground(Void... params) {
+            HttpClient httpClient = new DefaultHttpClient();
+
+            HttpPost httpPost = new HttpPost("http://wzwer.pythonanywhere.com/rest/alert/");
+            httpPost.setHeader("Content-Type", "application/json");
+
+            JSONObject jsonObject = new JSONObject();
+            try {
+                // jsonObject.put("dpi", persona.getDpi());
+                jsonObject.put("nombre", nombre);
+                jsonObject.put("telefono", telefono);
+                // jsonObject.put("telefono", telefono);
+                jsonObject.put("coordenadas", coor);
+                jsonObject.put("direccion", dir);
+                jsonObject.put("emergencia", emergencia);
+
+
+                //jsonObject.put("emergencia", persona.getEmergencia());
+
+                //String [] opciones = {"Dolor de Estomago","Accidente de Transito","Maternidad","Incendio"};
+
+
+                StringEntity stringEntity = new StringEntity(jsonObject.toString());
+                httpPost.setEntity(stringEntity);
+                httpClient.execute(httpPost);
+
+                return true;
+            } catch (org.json.JSONException e) {
+                return false;
+            } catch (java.io.UnsupportedEncodingException e) {
+                return false;
+            } catch (org.apache.http.client.ClientProtocolException e) {
+                return false;
+            } catch (java.io.IOException e) {
+                return false;
+            }
+        }
+
+        public void onPostExecute(Boolean result){
+            if(result){
+                Toast.makeText(MainActivity.this, "Insertado Correctamente", Toast.LENGTH_LONG).show();
+            } else
+                Toast.makeText(MainActivity.this, "Problema al Insertar", Toast.LENGTH_LONG).show();
+        }
+    }//Finaliza Insertar
+
+    /* Aqui empieza la Clase Localizacion */
+    public class Localizacion implements LocationListener {
+        MainActivity mainActivity;
+
+        public MainActivity getMainActivity() {
+            return mainActivity;
+        }
+
+        public void setMainActivity(MainActivity mainActivity) {
+            this.mainActivity = mainActivity;
+        }
+
+        @Override
+        public void onLocationChanged(Location loc) {
+            // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
+            // debido a la deteccion de un cambio de ubicacion
+
+            loc.getLatitude();
+            loc.getLongitude();
+
+            String Text = "Mi ubicacion actual es: " + "\n Lat = "
+                    + loc.getLatitude() + "\n Long = " + loc.getLongitude();
+            //tv1.setText(Text);
+            //String Text =loc.getLatitude()+ loc.getLongitude()+"";
+            coor= Text;
+            //tv1.setText(Text);
+            this.mainActivity.setLocation(loc);
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            //Este metodo se ejecuta cuando el GPS es desactivado
+            //tv1.setText("GPS Desactivado");
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            // Este metodo se ejecuta cuando el GPS es activado
+            // tv1.setText("GPS Activado");
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            switch (status) {
+                case LocationProvider.AVAILABLE:
+                    Log.d("debug", "LocationProvider.AVAILABLE");
+                    break;
+                case LocationProvider.OUT_OF_SERVICE:
+                    Log.d("debug", "LocationProvider.OUT_OF_SERVICE");
+                    break;
+                case LocationProvider.TEMPORARILY_UNAVAILABLE:
+                    Log.d("debug", "LocationProvider.TEMPORARILY_UNAVAILABLE");
+                    break;
+            }
+        }
+    }
+
+
 
     private void setSingleEvent(GridLayout mainGrid) {
         //Loop all child item of Main Grid
@@ -66,36 +322,75 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    Intent intent = new Intent(MainActivity.this,BuscarPersona.class);
-                    intent.putExtra("info","This is activity from card item index  "+finalI);
-                    startActivity(intent);
-                }
-            });
-        }
-    }
+                  //  Intent intent = new Intent(MainActivity.this,MenuEmergente.class);
+                   // intent.putExtra("info","This is activity from card item index  "+finalI);
+                   // startActivity(intent);
 
-    private void setToggleEvent(GridLayout mainGrid) {
-        //Loop all child item of Main Grid
-        for (int i = 0; i < mainGrid.getChildCount(); i++) {
-            //You can see , all child item is CardView , so we just cast object to CardView
-            final CardView cardView = (CardView) mainGrid.getChildAt(i);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
-                        //Change background color
-                        cardView.setCardBackgroundColor(Color.parseColor("#FF6F00"));
-                        Toast.makeText(MainActivity.this, "State : True", Toast.LENGTH_SHORT).show();
+                    switch(finalI) {
+                        case 0:
+                            MyCustomAlertDialog("Maternidad");
 
-                    } else {
-                        //Change background color
-                        cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
-                        Toast.makeText(MainActivity.this, "State : False", Toast.LENGTH_SHORT).show();
+
+                            break;
+
+                        case 1:
+                            MyCustomAlertDialog("Accidente");
+                           // sentenciaN;
+
+                            break;
+                        case 2:
+                            MyCustomAlertDialog("Incendio");
+                           // sentenciaN;
+
+                            break;
+                        case 3:
+                            MyCustomAlertDialog("Primeros Auxilios");
+                           // sentenciaN;
+
+                            break;
                     }
+
                 }
             });
         }
     }
+
+
+    //Llamar menu emergente
+
+    public void MyCustomAlertDialog(String m){
+        final String emerg =m;
+
+        MyDialog = new Dialog(MainActivity.this);
+        MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog.setContentView(R.layout.activity_menu_emergente);
+        MyDialog.setTitle("My Custom Dialog");
+
+        hello = (Button)MyDialog.findViewById(R.id.hello);
+        close = (Button)MyDialog.findViewById(R.id.close);
+
+        hello.setEnabled(true);
+        close.setEnabled(true);
+
+        hello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "Emergencia = "+   emerg, Toast.LENGTH_LONG).show();
+                emergencia = emerg;
+                new MainActivity.InsertarPersona().execute();
+            }
+        });
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog.cancel();
+            }
+        });
+
+        MyDialog.show();
+    }
+
+
 
     public void send() {
         Intent i = new Intent(this, crearRegistro.class);
