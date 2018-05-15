@@ -7,6 +7,7 @@ import android.content.Intent;
 //import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 //import android.preference.PreferenceManager;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -24,6 +25,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     Button show;
     Dialog MyDialog;
     Button hello;
+    ImageView image;
     Button close;
 
     TextView tv1;
@@ -352,16 +355,40 @@ public class MainActivity extends AppCompatActivity {
 
     //Llamar menu emergente
 
-    public void MyCustomAlertDialog(String m){
-        final String emerg =m;
+    public void MyCustomAlertDialog(String m) {
+        final String emerg = m;
+
+
+
 
         MyDialog = new Dialog(MainActivity.this);
         MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         MyDialog.setContentView(R.layout.activity_menu_emergente);
+
         MyDialog.setTitle("My Custom Dialog");
 
-        hello = (Button)MyDialog.findViewById(R.id.hello);
-        close = (Button)MyDialog.findViewById(R.id.close);
+        hello = (Button) MyDialog.findViewById(R.id.hello);
+        close = (Button) MyDialog.findViewById(R.id.close);
+        image = MyDialog.findViewById(R.id.imagenView);
+
+        if (emerg == "Maternidad"){
+            Drawable myDrawable = getResources().getDrawable(R.drawable.me_time);
+            image.setImageDrawable(myDrawable);
+        }
+        else if(emerg == "Accidente"){
+            Drawable myDrawable = getResources().getDrawable(R.drawable.family_time);
+            image.setImageDrawable(myDrawable);
+        }
+        else if(emerg == "Incendio"){
+            Drawable myDrawable = getResources().getDrawable(R.drawable.lovely_time);
+            image.setImageDrawable(myDrawable);
+        }
+        else if(emerg == "Primeros Auxilios"){
+            Drawable myDrawable = getResources().getDrawable(R.drawable.team_time);
+            image.setImageDrawable(myDrawable);
+        }
+
+
 
         hello.setEnabled(true);
         close.setEnabled(true);
@@ -372,6 +399,8 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Emergencia = "+   emerg, Toast.LENGTH_LONG).show();
                 emergencia = emerg;
                 new MainActivity.InsertarPersona().execute();
+                MyDialog.cancel();
+
             }
         });
         close.setOnClickListener(new View.OnClickListener() {
@@ -383,6 +412,9 @@ public class MainActivity extends AppCompatActivity {
 
         MyDialog.show();
     }
+
+
+
 
 
 
