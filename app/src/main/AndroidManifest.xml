@@ -19,14 +19,20 @@
         <activity android:name=".interfaces.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".interfaces.BuscarPersona" />
-        <activity android:name=".interfaces.crearRegistro" />
+        <activity android:name=".interfaces.BuscarPersona"
+            android:label="Alertas Enviadas"/>
+        <activity android:name=".interfaces.crearRegistro"
+            android:label="Registrar Datos"/>
         <activity android:name=".interfaces.MenuEmergente" />
-        <activity android:name=".interfaces.Historia"></activity>
+        <activity android:name=".interfaces.Historia"
+            android:label="Historia"/>
+        <activity android:name=".interfaces.desarrolladores"
+            android:label="Desarrolladores"/>
+        <activity android:name=".interfaces.quienes_somos"
+            android:label="¿Quienes Somos?"></activity>
     </application>
 
 </manifest>

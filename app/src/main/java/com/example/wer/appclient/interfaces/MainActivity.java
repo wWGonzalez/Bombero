@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tv1;
     private String dato="";
+
     GridLayout mainGrid;
 
     Menu menu;
     //Variables para Post
     public String emergencia;
-    Spinner spinner1;
     Persona persona;
     String nombre="";
     String telefono="";
@@ -76,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
 
-    private Button button;
-    private TextView textview;
     private Locale locale;
     private Configuration config = new Configuration();
 
@@ -162,31 +160,28 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_alertas:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir registro de alertas");
                 btn_buscarPersona(null);
                 return true;
             case R.id.action_pagina_web:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir pagina Web");
                 Uri uri = Uri.parse("http://www.google.com/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 return true;
             case R.id.action_historia:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir historia");
+                abrir_hitoria(null);
                 return true;
             case R.id.action_quienes_somos:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir quienes somos");
+                abrir_quienes_somos(null);
                 return true;
             case R.id.action_desarrolladores:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir Desarrolladores");
+                abrir_desarrolladores(null);
                 return true;
             case R.id.action_cambiar_idioma:
                 //crear nuevo aviso
-                Log. d(getLocalClassName(),"Abrir Desarrolladores");
                 showDialog();
                 return true;
             case R.id.action_salir:
@@ -308,9 +303,9 @@ public class MainActivity extends AppCompatActivity {
 
         public void onPostExecute(Boolean result){
             if(result){
-                Toast.makeText(MainActivity.this, "Insertado Correctamente", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Alerta Enviada", Toast.LENGTH_LONG).show();
             } else
-                Toast.makeText(MainActivity.this, "Problema al Insertar", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Problema al Enviar Alerta", Toast.LENGTH_LONG).show();
         }
     }//Finaliza Insertar
 
@@ -468,6 +463,20 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void abrir_desarrolladores(View view){
+        Intent intent = new Intent(MainActivity.this, desarrolladores.class);
+        startActivity(intent);
+    }
+
+    public void abrir_quienes_somos(View view){
+        Intent intent = new Intent(MainActivity.this, quienes_somos.class);
+        startActivity(intent);
+    }
+
+    public void abrir_hitoria(View view){
+        Intent intent = new Intent(MainActivity.this, Historia.class);
+        startActivity(intent);
+    }
     //Metodo para leer fichero
     private void leerFichero() {
         try {
