@@ -6,12 +6,12 @@ import android.view.MenuItem;
 
 import com.example.wer.appclient.R;
 
-public class Historia extends AppCompatActivity {
+public class desarrolladores extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historia);
+        setContentView(R.layout.activity_desarrolladores);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

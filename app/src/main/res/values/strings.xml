@@ -2,8 +2,8 @@
     <string name="app_name">FIREFIGHTER</string>
     <string name="title_activity_buscar_persona">BuscarPersona</string>
 
-    <string name="str_en" >Inglés</string>
-    <string name="str_es" >Español</string>
+    <string name="str_en">Inglés</string>
+    <string name="str_es">Español</string>
 
     //Menu Principal
     <string name="alerta">Alerta</string>
@@ -32,7 +32,7 @@
     <string name="aceptar">ACEPTAR</string>
     <string name="cancelar">CANCELAR</string>
 
-    <string-array name="languages" >
+    <string-array name="languages">
         <item>@string/str_en</item>
         <item>@string/str_es</item>
 
