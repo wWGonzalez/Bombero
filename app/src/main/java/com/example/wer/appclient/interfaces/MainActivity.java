@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     Persona persona;
     String nombre="";
     String telefono="";
+    String dpi="";
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
@@ -113,8 +114,10 @@ public class MainActivity extends AppCompatActivity {
             locationStart();
         }
 
+        leerFicheroDPI();
         leerFicheroTelefono();
         leerFicheroNombre();
+
 
     }//Finish onCreate
 
@@ -230,6 +233,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void leerFicheroDPI() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("DPI.txt")));
+            String texto = fin.readLine();
+            dpi = texto;
+            // tv1.setText(texto);
+            //  this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
+
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         MainActivity.Localizacion Local = new MainActivity.Localizacion();
@@ -285,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject();
             try {
-                // jsonObject.put("dpi", persona.getDpi());
+                jsonObject.put("dpi", dpi);
                 jsonObject.put("nombre", nombre);
                 jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);
@@ -333,8 +352,7 @@ public class MainActivity extends AppCompatActivity {
             loc.getLatitude();
             loc.getLongitude();
 
-            String Text = "Mi ubicacion actual es: " + "\n Lat = "
-                    + loc.getLatitude() + "\n Long = " + loc.getLongitude();
+            String Text = "" + loc.getLatitude() + "," + loc.getLongitude();
             //tv1.setText(Text);
             //String Text =loc.getLatitude()+ loc.getLongitude()+"";
             coor= Text;

@@ -19,6 +19,13 @@
             android:hint="@string/nombre_usuario"
             android:singleLine="true" />
         <EditText
+            android:id="@+id/input_dpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DPI"
+
+            android:singleLine="true" />
+        <EditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,8 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@android:color/holo_red_light"
-            android:textColor="@android:color/white"
-            android:onClick="crearFicheroTelefono"
-            android:text="Guardar" />
+            android:onClick="crearFicheros"
+            android:text="Guardar"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

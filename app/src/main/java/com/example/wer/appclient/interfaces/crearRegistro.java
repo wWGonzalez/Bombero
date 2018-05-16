@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.wer.appclient.R;
+import com.example.wer.appclient.clases.Persona;
 import com.example.wer.appclient.interfaces.MainActivity;
 
 import java.io.OutputStreamWriter;
@@ -17,8 +18,11 @@ import java.text.Normalizer;
 
 public class crearRegistro extends AppCompatActivity {
 
-    EditText et1;
-    EditText et2;
+    EditText et1; //recive Nombre
+    EditText et2; //Recive Telefono
+    EditText et3;//Recive DPI
+
+    String telefono="";
 
     String nombre="";
 
@@ -28,6 +32,9 @@ public class crearRegistro extends AppCompatActivity {
         setContentView(R.layout.activity_crear_registro);
         et1 = findViewById(R.id.input_name);
         et2 = findViewById(R.id.input_password);
+        et3 = findViewById(R.id.input_dpi);
+
+
     }
 
     public void crearFicheroNombre(){
@@ -45,7 +52,28 @@ public class crearRegistro extends AppCompatActivity {
             fout.write(nombre);
 
 
-            Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
+            fout.close();
+        }
+        catch (Exception ex)
+        {
+            Log.e("Ficheros", "Error al escribir fichero a memoria interna");
+        }
+    }//finish crearFichero
+
+    public void crearFicheroDPI(){
+
+        try
+        {
+            OutputStreamWriter fout=
+                    new OutputStreamWriter(
+                            openFileOutput("DPI.txt", Context.MODE_PRIVATE));
+
+
+           fout.write(et3.getText().toString());// Escribe en el Fichero
+
+
+            //Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
         }
         catch (Exception ex)
@@ -67,22 +95,36 @@ public class crearRegistro extends AppCompatActivity {
     }
 
 
-    public void crearFicheroTelefono(View view){
-        try
-        {
-            OutputStreamWriter fout=
-                    new OutputStreamWriter(
-                            openFileOutput("Telefono.txt", Context.MODE_PRIVATE));
-            fout.write(et2.getText().toString());
-            Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
-            fout.close();
-            crearFicheroNombre();
-            Intent o = new Intent(this,MainActivity.class);
+    public void crearFicheros(View view){
+        telefono = et3.getText().toString();
+
+        if(telefono.equals("")) {
+            Toast.makeText(this, "Debe ingresar un Numero de Telefono", Toast.LENGTH_SHORT).show();
+        } else {
+            crearFicheroNombre(); //Crea fichero nombre
+            crearFicheroDPI(); //Crea fichero DPI
+            crearFicheroTelefono();
+
+            Toast.makeText(this, "Fichero creado correctamente", Toast.LENGTH_SHORT).show();
+            Intent o = new Intent(this, MainActivity.class);
             startActivity(o);
         }
-        catch (Exception ex)
-        {
-            Log.e("Ficheros", "Error al escribir fichero a memoria interna");
-        }
+    }
+
+
+    public void crearFicheroTelefono(){
+
+            try {
+                OutputStreamWriter fout =
+                        new OutputStreamWriter(
+                                openFileOutput("Telefono.txt", Context.MODE_PRIVATE));
+                fout.write(telefono);
+                fout.close();
+
+            } catch (Exception ex) {
+                Log.e("Ficheros", "Error al escribir fichero a memoria interna");
+            }
+
     }//finish crearFichero
 }
+
