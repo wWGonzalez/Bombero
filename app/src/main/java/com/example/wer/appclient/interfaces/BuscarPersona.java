@@ -236,8 +236,9 @@ public class BuscarPersona extends AppCompatActivity {
 
                 //Filtra por nombre guardado en el fichero
 
+
                 for(int i=0; i< personas.size(); i++) {
-                    if (personas.get(i).getTelefono().equals("41200988")) {
+                    if (personas.get(i).getTelefono().equals(telefono)) {
                         personas_aux.add(personas.get(i));
                     }
                 }
