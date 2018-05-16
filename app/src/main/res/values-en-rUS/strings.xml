@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FIREFIGHTER</string>
+    <string name="incendios">Fires</string>
+    <string name="idioma">Language</string>
+    <string name="salir">Exit</string>
+    <string name="registro_de_alertas">Sent Alerts</string>
+    <string name="desarrolladores">Developers</string>
+    <string name="quienes_somos">About us?</string>
+    <string name="historia">"History "</string>
+    <string name="pagina_web">Web Page</string>
+    <string name="button_send">Enviar</string>
+    <string name="guardar">Save</string>
+    <string name="numero_telefono">Phone Number</string>
+    <string name="nombre_usuario">Username</string>
+    <string name="primeros_auxilios">First Aid</string>
+    <string name="accidentes">"Accidents "</string>
+    <string name="maternidad">Maternity</string>
+    <string name="alerta">Alert</string>
+    <string name="str_en">English</string>
+    <string name="str_es">Spanish</string>
+    <string name="desea_enviar_alerta">Do you want to Send the Alert?</string>
+    <string name="aceptar">ACCEPT</string>
+    <string name="cancelar">CANCEL</string>
+</resources>

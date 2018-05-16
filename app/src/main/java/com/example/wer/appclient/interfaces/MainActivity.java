@@ -1,12 +1,15 @@
 package com.example.wer.appclient.interfaces;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 //import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 //import android.preference.PreferenceManager;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -14,6 +17,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -72,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
 
+    private Button button;
+    private TextView textview;
+    private Locale locale;
+    private Configuration config = new Configuration();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         if(dato.equals("")){
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
             send();
-
         }
         else{
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
@@ -109,6 +117,38 @@ public class MainActivity extends AppCompatActivity {
         leerFicheroNombre();
 
     }//Finish onCreate
+
+    private void showDialog(){
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setTitle(getResources().getString(R.string.idioma));
+        //obtiene los idiomas del array de string.xml
+        String[] types = getResources().getStringArray(R.array.languages);
+        b.setItems(types, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+                switch(which){
+                    case 0:
+                        locale = new Locale("en");
+                        config.locale =locale;
+                        break;
+                    case 1:
+                        locale = new Locale("es");
+                        config.locale =locale;
+                        break;
+                }
+                getResources().updateConfiguration(config, null);
+                Intent refresh = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(refresh);
+                finish();
+            }
+
+        });
+
+        b.show();
+    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -128,6 +168,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_pagina_web:
                 //crear nuevo aviso
                 Log. d(getLocalClassName(),"Abrir pagina Web");
+                Uri uri = Uri.parse("http://www.google.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
                 return true;
             case R.id.action_historia:
                 //crear nuevo aviso
@@ -140,6 +183,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_desarrolladores:
                 //crear nuevo aviso
                 Log. d(getLocalClassName(),"Abrir Desarrolladores");
+                return true;
+            case R.id.action_cambiar_idioma:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir Desarrolladores");
+                showDialog();
                 return true;
             case R.id.action_salir:
                 finish();

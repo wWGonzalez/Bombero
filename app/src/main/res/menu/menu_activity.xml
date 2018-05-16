@@ -28,6 +28,11 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item android:id="@+id/action_cambiar_idioma"
+        android:title="@string/idioma"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
     <item android:id="@+id/action_salir"
         android:title="@string/salir"
         android:orderInCategory="200"

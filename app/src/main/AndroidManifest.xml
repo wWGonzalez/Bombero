@@ -19,12 +19,14 @@
         <activity android:name=".interfaces.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".interfaces.BuscarPersona" />
         <activity android:name=".interfaces.crearRegistro" />
-        <activity android:name=".interfaces.MenuEmergente"></activity>
+        <activity android:name=".interfaces.MenuEmergente" />
+        <activity android:name=".interfaces.Historia"></activity>
     </application>
 
 </manifest>

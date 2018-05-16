@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Alertas"
+                android:text="@string/alerta"
                 android:textColor="@android:color/white"
                 android:textSize="34sp" />
         </RelativeLayout>
@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
-                        android:text="MATERNIDAD"
+                        android:text="@string/maternidad"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -116,7 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
-                        android:text="ACCIDENTES"
+                        android:text="@string/accidentes"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -149,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
-                        android:text="INCENDIOS"
+                        android:text="@string/incendios"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -181,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
-                        android:text="PRIMEROS AUXILIOS"
+                        android:text="@string/primeros_auxilios"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"

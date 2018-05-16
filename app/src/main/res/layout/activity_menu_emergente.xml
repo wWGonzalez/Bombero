@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
-        android:text="¿Desea Enviar la Alerta?"
+        android:text="@string/desea_enviar_alerta"
         android:textSize="18sp" />
     <FrameLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_gravity="center|left"
             android:layout_margin="5dp"
             android:background="@drawable/boton_redondeado"
-            android:text="Aceptar"
+            android:text="@string/aceptar"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
         <Button
@@ -42,7 +42,7 @@
             android:layout_gravity="center|right"
             android:layout_margin="5dp"
             android:background="@drawable/boton_redondeado"
-            android:text="Cancelar"
+            android:text="@string/cancelar"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
     </FrameLayout>

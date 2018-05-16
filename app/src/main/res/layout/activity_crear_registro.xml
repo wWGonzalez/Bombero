@@ -16,13 +16,13 @@
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre Usuario"
+            android:hint="@string/nombre_usuario"
             android:singleLine="true" />
         <EditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefono"
+            android:hint="@string/numero_telefono"
           />
         <Button
             android:id="@+id/btn_signup"
