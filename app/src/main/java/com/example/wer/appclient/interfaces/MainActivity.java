@@ -19,6 +19,8 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private String dato="";
     GridLayout mainGrid;
 
+    Menu menu;
     //Variables para Post
     public String emergencia;
     Spinner spinner1;
@@ -105,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
         leerFicheroNombre();
 
     }//Finish onCreate
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_activity, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     //Leer Ficheros
     private void leerFicheroNombre() {

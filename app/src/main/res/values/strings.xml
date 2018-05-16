@@ -8,4 +8,8 @@
         <item>Nombre</item>
         <item>Apellido</item>
     </string-array>
+
+    <string name="button_send">Send</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
