@@ -13,11 +13,14 @@ import com.example.wer.appclient.R;
 import com.example.wer.appclient.interfaces.MainActivity;
 
 import java.io.OutputStreamWriter;
+import java.text.Normalizer;
 
 public class crearRegistro extends AppCompatActivity {
 
     EditText et1;
     EditText et2;
+
+    String nombre="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +31,20 @@ public class crearRegistro extends AppCompatActivity {
     }
 
     public void crearFicheroNombre(){
+
         try
         {
             OutputStreamWriter fout=
                     new OutputStreamWriter(
                             openFileOutput("Nombre.txt", Context.MODE_PRIVATE));
+            //nombre=et1.getText().toString();
+            quitarAcento(et1.getText().toString());
 
-            fout.write(et1.getText().toString());
+
+
+            fout.write(nombre);
+
+
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
         }
@@ -43,6 +53,19 @@ public class crearRegistro extends AppCompatActivity {
             Log.e("Ficheros", "Error al escribir fichero a memoria interna");
         }
     }//finish crearFichero
+
+    public void quitarAcento(String c){
+        String origin = c;
+
+      //  String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ";
+        String cadenaNormalize = Normalizer.normalize(origin, Normalizer.Form.NFD);
+
+        String cadenaSinAcentos = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
+        nombre = cadenaSinAcentos;
+
+
+    }
+
 
     public void crearFicheroTelefono(View view){
         try
