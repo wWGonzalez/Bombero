@@ -13,13 +13,12 @@ import android.location.LocationProvider;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Spinner;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -45,9 +44,19 @@ public class BuscarPersona extends AppCompatActivity {
         setContentView(R.layout.activity_buscar_persona);
         inicializar();
         //Barra Hacia atras
-        getSupportActionBar().setTitle("BuscarPersona");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void inicializar(){
         this.listViewPersona = (ListView) findViewById(R.id.listViewPersonas);
         tv1 = findViewById(R.id.textViewG1);
