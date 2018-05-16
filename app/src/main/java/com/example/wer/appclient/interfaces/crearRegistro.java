@@ -31,7 +31,6 @@ public class crearRegistro extends AppCompatActivity {
     }
 
     public void crearFicheroNombre(){
-
         try
         {
             OutputStreamWriter fout=
@@ -40,10 +39,7 @@ public class crearRegistro extends AppCompatActivity {
             //nombre=et1.getText().toString();
             quitarAcento(et1.getText().toString());
 
-
-
             fout.write(nombre);
-
 
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
@@ -62,10 +58,7 @@ public class crearRegistro extends AppCompatActivity {
 
         String cadenaSinAcentos = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
         nombre = cadenaSinAcentos;
-
-
     }
-
 
     public void crearFicheroTelefono(View view){
         try
