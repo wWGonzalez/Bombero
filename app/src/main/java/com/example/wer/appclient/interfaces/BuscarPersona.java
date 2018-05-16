@@ -13,6 +13,7 @@ import android.location.LocationProvider;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,7 @@ public class BuscarPersona extends AppCompatActivity {
         setContentView(R.layout.activity_buscar_persona);
         inicializar();
         //Barra Hacia atras
+        getSupportActionBar().setTitle("BuscarPersona");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     public void inicializar(){

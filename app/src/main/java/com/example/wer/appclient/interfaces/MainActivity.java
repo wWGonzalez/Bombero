@@ -21,6 +21,7 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -114,6 +115,38 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_alertas:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir registro de alertas");
+                btn_buscarPersona(null);
+                return true;
+            case R.id.action_pagina_web:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir pagina Web");
+                return true;
+            case R.id.action_historia:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir historia");
+                return true;
+            case R.id.action_quienes_somos:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir quienes somos");
+                return true;
+            case R.id.action_desarrolladores:
+                //crear nuevo aviso
+                Log. d(getLocalClassName(),"Abrir Desarrolladores");
+                return true;
+            case R.id.action_salir:
+                finish();
+                return true;
+            default:
+                return false;
+        }
     }
 
     //Leer Ficheros
