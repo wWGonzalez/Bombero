@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/numero_telefono"
           />
+
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="fill_parent"

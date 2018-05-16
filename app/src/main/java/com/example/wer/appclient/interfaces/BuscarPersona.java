@@ -42,6 +42,7 @@ public class BuscarPersona extends AppCompatActivity {
     TextView tv1, tv2;
 
     String nombre =""; //Almacena el nombre guardado en el fichero interno
+    String telefono =""; //Almacena el telefono guardado en el fichero interno
 
 
 
@@ -56,6 +57,7 @@ public class BuscarPersona extends AppCompatActivity {
 
         //Lee el nombre almacenado en el registro
         leerFicheroNombre();
+        leerFicheroTelefono();
     }
 
     @Override
@@ -198,6 +200,22 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
+    private void leerFicheroTelefono() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Telefono.txt")));
+            String texto = fin.readLine();
+            nombre = texto;
+            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+            //this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
+
     //get personas
     public class getPersonas extends AsyncTask<String, Void, String> {
         public String doInBackground(String... params) {
@@ -219,7 +237,7 @@ public class BuscarPersona extends AppCompatActivity {
                 //Filtra por nombre guardado en el fichero
 
                 for(int i=0; i< personas.size(); i++) {
-                    if (personas.get(i).getNombre().equals(nombre)) {
+                    if (personas.get(i).getTelefono().equals("41200988")) {
                         personas_aux.add(personas.get(i));
                     }
                 }

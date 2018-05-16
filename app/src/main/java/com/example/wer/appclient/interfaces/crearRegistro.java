@@ -72,7 +72,7 @@ public class crearRegistro extends AppCompatActivity {
         {
             OutputStreamWriter fout=
                     new OutputStreamWriter(
-                            openFileOutput("DPI.txt", Context.MODE_PRIVATE));
+                            openFileOutput("Telefono.txt", Context.MODE_PRIVATE));
             fout.write(et2.getText().toString());
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();

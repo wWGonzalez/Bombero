@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             locationStart();
         }
 
-        leerFicheroDPI();
+        leerFicheroTelefono();
         leerFicheroNombre();
 
     }//Finish onCreate
@@ -214,12 +214,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void leerFicheroDPI() {
+    private void leerFicheroTelefono() {
         try {
             BufferedReader fin =
                     new BufferedReader(
                             new InputStreamReader(
-                                    openFileInput("DPI.txt")));
+                                    openFileInput("Telefono.txt")));
             String texto = fin.readLine();
             telefono = texto;
             // tv1.setText(texto);
