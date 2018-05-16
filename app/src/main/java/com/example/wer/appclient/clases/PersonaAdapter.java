@@ -42,7 +42,7 @@ public class PersonaAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.layout_persona, parent, false);
 
-        TextView DPI = (TextView) view.findViewById(R.id.textView5);
+   //     TextView DPI = (TextView) view.findViewById(R.id.textView5);
         TextView Coordenadas = (TextView) view.findViewById(R.id.textView6);
         TextView Direccion = (TextView) view.findViewById(R.id.textView7);
         TextView Emergencia = (TextView) view.findViewById(R.id.textView8);
@@ -52,7 +52,7 @@ public class PersonaAdapter extends BaseAdapter {
       //  TextView Apellido = (TextView) view.findViewById(R.id.textView7);
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
-            DPI.setText(String.format("DPI: %s", persona.getDpi()));
+       //     DPI.setText(String.format("DPI: %s", persona.getDpi()));
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
             Direccion.setText(String.format("Direccion: %s", persona.getDireccion()));
             Emergencia.setText(String.format("Emergencia: %s", persona.getEmergencia()));

@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,7 +29,9 @@ import com.example.wer.appclient.clases.HttpRequest;
 import com.example.wer.appclient.clases.Persona;
 import com.example.wer.appclient.clases.PersonaAdapter;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +39,11 @@ import java.util.Locale;
 public class BuscarPersona extends AppCompatActivity {
     EditText dato;
     ListView listViewPersona;
-    TextView tv1,tv2;
+    TextView tv1, tv2;
+
+    String nombre =""; //Almacena el nombre guardado en el fichero interno
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +53,21 @@ public class BuscarPersona extends AppCompatActivity {
         //Barra Hacia atras
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        //Lee el nombre almacenado en el registro
+        leerFicheroNombre();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             this.finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void inicializar(){
+    public void inicializar() {
         this.listViewPersona = (ListView) findViewById(R.id.listViewPersonas);
         tv1 = findViewById(R.id.textViewG1);
         tv2 = findViewById(R.id.textViewG2);
@@ -119,6 +129,7 @@ public class BuscarPersona extends AppCompatActivity {
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
         BuscarPersona mainActivity;
+
         public BuscarPersona getMainActivity() {
             return mainActivity;
         }
@@ -169,8 +180,26 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
+
+
+    private void leerFicheroNombre() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Nombre.txt")));
+            String texto = fin.readLine();
+            nombre = texto;
+            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+            //this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
+
     //get personas
-    public class getPersonas extends AsyncTask<String, Void, String>{
+    public class getPersonas extends AsyncTask<String, Void, String> {
         public String doInBackground(String... params) {
             try {
                 return HttpRequest.get(params[0]).accept("application/json").body();
@@ -179,17 +208,28 @@ public class BuscarPersona extends AppCompatActivity {
             }
         }
 
-        public void onPostExecute(String result){
-            if(result.isEmpty()){
-                Toast.makeText(BuscarPersona.this,"No se generaron resultados Revisar Conexion",Toast.LENGTH_LONG).show();
-            }else{
+        public void onPostExecute(String result) {
+            if (result.isEmpty()) {
+                Toast.makeText(BuscarPersona.this, "No se generaron resultados Revisar Conexion", Toast.LENGTH_LONG).show();
+            } else {
+
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
-                personas_aux = personas;
 
-                if(personas_aux.size() != 0){
-                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
-                    listViewPersona.setAdapter(adapter);
+                //Filtra por nombre guardado en el fichero
+
+                for(int i=0; i< personas.size(); i++) {
+                    if (personas.get(i).getNombre().equals(nombre)) {
+                        personas_aux.add(personas.get(i));
+                    }
+                }
+
+
+                if (personas_aux.size() != 0) {
+                   PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
+                   listViewPersona.setAdapter(adapter);
+
+                    /*
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -199,6 +239,8 @@ public class BuscarPersona extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
+                    */
+
                 }
             }
         }
