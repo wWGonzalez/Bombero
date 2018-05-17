@@ -44,8 +44,6 @@ public class BuscarPersona extends AppCompatActivity {
     String nombre =""; //Almacena el nombre guardado en el fichero interno
     String telefono =""; //Almacena el telefono guardado en el fichero interno
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,8 +180,6 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
-
-
     private void leerFicheroNombre() {
         try {
             BufferedReader fin =
@@ -233,21 +229,19 @@ public class BuscarPersona extends AppCompatActivity {
 
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
-
+                personas_aux = personas;
                 //Filtra por nombre guardado en el fichero
-
+                /*
                 for(int i=0; i< personas.size(); i++) {
                     if (personas.get(i).getTelefono().equals("41200988")) {
                         personas_aux.add(personas.get(i));
                     }
                 }
-
-
+                */
                 if (personas_aux.size() != 0) {
                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                    listViewPersona.setAdapter(adapter);
 
-                    /*
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -257,7 +251,6 @@ public class BuscarPersona extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
-                    */
 
                 }
             }

@@ -24,6 +24,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/numero_telefono"
           />
+        <EditText
+            android:id="@+id/input_dpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DPI"
+            android:singleLine="true" />
 
         <Button
             android:id="@+id/btn_signup"

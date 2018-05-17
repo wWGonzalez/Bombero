@@ -35,34 +35,29 @@ public class PersonaAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-
-
     @Override
     public View getView(int position, View convertViw, ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.layout_persona, parent, false);
 
-   //     TextView DPI = (TextView) view.findViewById(R.id.textView5);
-        TextView Coordenadas = (TextView) view.findViewById(R.id.textView6);
-        TextView Direccion = (TextView) view.findViewById(R.id.textView7);
-        TextView Emergencia = (TextView) view.findViewById(R.id.textView8);
-        TextView Telefono = (TextView) view.findViewById(R.id.textView9);
-        TextView Nombre = (TextView) view.findViewById(R.id.textView10);
+        TextView Dpi = (TextView) view.findViewById(R.id.textView5);
+        TextView Nombre = (TextView) view.findViewById(R.id.textView6);
+        TextView Telefono = (TextView) view.findViewById(R.id.textView7);
+        TextView Coordenadas = (TextView) view.findViewById(R.id.textView8);
+        TextView Direccion = (TextView) view.findViewById(R.id.textView9);
+        TextView Emergencia = (TextView) view.findViewById(R.id.textView10);
 
       //  TextView Apellido = (TextView) view.findViewById(R.id.textView7);
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
-       //     DPI.setText(String.format("DPI: %s", persona.getDpi()));
+            Dpi.setText(String.format("Dpi: %s", persona.getDpi()));
+            Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
+            Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
             Direccion.setText(String.format("Direccion: %s", persona.getDireccion()));
             Emergencia.setText(String.format("Emergencia: %s", persona.getEmergencia()));
-            Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
-            Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
-
             //Nombre.setText(String.format("Coordenadas: %s", persona.getNombre()));
-
         }
         return view;
     }
-
 }

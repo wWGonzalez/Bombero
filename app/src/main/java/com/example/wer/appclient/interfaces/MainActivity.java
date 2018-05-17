@@ -280,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject();
             try {
-                // jsonObject.put("dpi", persona.getDpi());
+                jsonObject.put("dpi", persona);
                 jsonObject.put("nombre", nombre);
                 jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);
