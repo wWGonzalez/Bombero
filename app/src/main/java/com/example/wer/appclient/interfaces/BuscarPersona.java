@@ -22,7 +22,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.wer.appclient.R;
@@ -45,10 +44,6 @@ public class BuscarPersona extends AppCompatActivity {
     String nombre =""; //Almacena el nombre guardado en el fichero interno
     String telefono =""; //Almacena el telefono guardado en el fichero interno
 
-<<<<<<< HEAD
-
-
-=======
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +52,32 @@ public class BuscarPersona extends AppCompatActivity {
         //Barra Hacia atras
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
->>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
 
+        //Lee el nombre almacenado en el registro
+        leerFicheroNombre();
+        leerFicheroTelefono();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void inicializar() {
+        this.listViewPersona = (ListView) findViewById(R.id.listViewPersonas);
+        tv1 = findViewById(R.id.textViewG1);
+        tv2 = findViewById(R.id.textViewG2);
+        new getPersonas().execute("http://wzwer.pythonanywhere.com/rest/alert/");
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
+        } else {
+            locationStart();
+        }
+    }
 
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -76,8 +95,8 @@ public class BuscarPersona extends AppCompatActivity {
         mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
 
-        tv1.setText("Localizacion agregada");
-        tv2.setText("");
+        tv1.setText("Esperando Datos...");
+        tv2.setText("Esperando Datos...");
     }//Finaliza locationStart
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -88,7 +107,6 @@ public class BuscarPersona extends AppCompatActivity {
             }
         }
     }//Finaliza onRequest
-
 
     public void setLocation(Location loc) {
         //Obtener la direccion de la calle a partir de la latitud y la longitud
@@ -102,14 +120,11 @@ public class BuscarPersona extends AppCompatActivity {
                     tv2.setText("Mi direccion es: \n"
                             + DirCalle.getAddressLine(0));
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }//Finaliza setLocation
-
-
 
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
@@ -165,10 +180,6 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
-
-
-=======
     private void leerFicheroNombre() {
         try {
             BufferedReader fin =
@@ -184,13 +195,25 @@ public class BuscarPersona extends AppCompatActivity {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
         }
     }
->>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
 
-
-
+    private void leerFicheroTelefono() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Telefono.txt")));
+            String texto = fin.readLine();
+            nombre = texto;
+            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+            //this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
 
     //get personas
-    public class getPersonas extends AsyncTask<String, Void, String>{
+    public class getPersonas extends AsyncTask<String, Void, String> {
         public String doInBackground(String... params) {
             try {
                 return HttpRequest.get(params[0]).accept("application/json").body();
@@ -199,19 +222,13 @@ public class BuscarPersona extends AppCompatActivity {
             }
         }
 
-        public void onPostExecute(String result){
-            if(result.isEmpty()){
-                Toast.makeText(BuscarPersona.this,"No se generaron resultados",Toast.LENGTH_LONG).show();
-            }else{
+        public void onPostExecute(String result) {
+            if (result.isEmpty()) {
+                Toast.makeText(BuscarPersona.this, "No se generaron resultados Revisar Conexion", Toast.LENGTH_LONG).show();
+            } else {
+
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
-<<<<<<< HEAD
-
-
-                if(personas_aux.size() != 0){
-                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
-                    listViewPersona.setAdapter(adapter);
-=======
                 personas_aux = personas;
                 //Filtra por nombre guardado en el fichero
 
@@ -223,20 +240,18 @@ public class BuscarPersona extends AppCompatActivity {
                 }
                 */
                 if (personas_aux.size() != 0) {
-                   PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
-                   listViewPersona.setAdapter(adapter);
+                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
+                    listViewPersona.setAdapter(adapter);
 
->>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                            Intent i = new Intent(BuscarPersona.this, MainActivity.class);
+                            i.putExtra("operacion", "actualizar");
+                            i.putExtra("id_persona", ((Persona) parent.getAdapter().getItem(position)).getDpi());
+                            startActivity(i);
                         }
                     });
-<<<<<<< HEAD
-
-=======
->>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
                 }
             }
         }

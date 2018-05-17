@@ -27,7 +27,6 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:orientation="vertical"
         android:background="@drawable/bg"
@@ -46,16 +45,6 @@
                 android:text="@string/alerta"
                 android:textColor="@android:color/white"
                 android:textSize="34sp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textGrid"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/textGrid"
-                android:onClick="btn_buscarPersona"
-                android:text="Button" />
         </RelativeLayout>
         <GridLayout
             android:id="@+id/mainGrid"
