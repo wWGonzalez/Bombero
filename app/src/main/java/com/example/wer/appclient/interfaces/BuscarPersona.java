@@ -231,12 +231,8 @@ public class BuscarPersona extends AppCompatActivity {
                 ArrayList<Persona> personas_aux = new ArrayList();
                 personas_aux = personas;
                 //Filtra por nombre guardado en el fichero
-<<<<<<< HEAD
+
                 /*
-=======
-
-
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
                 for(int i=0; i< personas.size(); i++) {
                     if (personas.get(i).getTelefono().equals(telefono)) {
                         personas_aux.add(personas.get(i));
@@ -247,10 +243,6 @@ public class BuscarPersona extends AppCompatActivity {
                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                    listViewPersona.setAdapter(adapter);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -260,11 +252,6 @@ public class BuscarPersona extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
-<<<<<<< HEAD
-=======
-
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
-
                 }
             }
         }

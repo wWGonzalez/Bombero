@@ -300,11 +300,9 @@ public class MainActivity extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject();
             try {
-<<<<<<< HEAD
-                jsonObject.put("dpi", persona);
-=======
+
                 jsonObject.put("dpi", dpi);
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
+
                 jsonObject.put("nombre", nombre);
                 jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);

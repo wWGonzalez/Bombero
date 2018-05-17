@@ -4,6 +4,7 @@
 
     <string name="str_en">Inglés</string>
     <string name="str_es">Español</string>
+    <string name="mam">Mam</string>
 
     //Menu Principal
     <string name="alerta">Alerta</string>
@@ -35,6 +36,7 @@
     <string-array name="languages">
         <item>@string/str_en</item>
         <item>@string/str_es</item>
+        <item>@string/mam</item>
 
     </string-array>
 

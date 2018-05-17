@@ -6,27 +6,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </LinearLayout>
-<<<<<<< HEAD
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView5"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-=======
 
-
-
-
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/textView5"
             android:layout_alignParentStart="true" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

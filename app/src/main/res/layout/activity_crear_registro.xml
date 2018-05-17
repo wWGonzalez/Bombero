@@ -1,50 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.wer.appclient.interfaces.crearRegistro">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="60dp">
-        <EditText
-            android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombre_usuario"
-            android:singleLine="true" />
-        <EditText
-            android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/numero_telefono"
-          />
-        <EditText
-            android:id="@+id/input_dpi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="DPI"
-            android:singleLine="true" />
-=======
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="360dp"
     android:layout_height="500dp"
     android:layout_gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
->>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
 
     <EditText
         android:id="@+id/input_name"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="140dp"
         android:hint="@string/nombre_usuario" />
     <EditText
         android:id="@+id/input_password"
@@ -53,6 +18,14 @@
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_margin="5dp"
         android:hint="@string/numero_telefono" />
+
+    <EditText
+        android:id="@+id/input_dpi"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="5dp"
+        android:hint="DPI" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -64,7 +37,7 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:background="@drawable/boton_redondeado"
-            android:onClick="crearFicheroTelefono"
+            android:onClick="crearFicheros"
             android:text="Siguiente"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
