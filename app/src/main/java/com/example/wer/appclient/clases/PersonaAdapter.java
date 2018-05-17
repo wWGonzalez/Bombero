@@ -40,17 +40,30 @@ public class PersonaAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.layout_persona, parent, false);
 
+<<<<<<< HEAD
         TextView Dpi = (TextView) view.findViewById(R.id.textView5);
         TextView Nombre = (TextView) view.findViewById(R.id.textView6);
         TextView Telefono = (TextView) view.findViewById(R.id.textView7);
         TextView Coordenadas = (TextView) view.findViewById(R.id.textView8);
         TextView Direccion = (TextView) view.findViewById(R.id.textView9);
         TextView Emergencia = (TextView) view.findViewById(R.id.textView10);
+=======
+        TextView DPI = (TextView) view.findViewById(R.id.textView5);
+        TextView Coordenadas = (TextView) view.findViewById(R.id.textView6);
+        TextView Direccion = (TextView) view.findViewById(R.id.textView7);
+        TextView Emergencia = (TextView) view.findViewById(R.id.textView8);
+        TextView Telefono = (TextView) view.findViewById(R.id.textView9);
+        TextView Nombre = (TextView) view.findViewById(R.id.textView10);
+>>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
 
       //  TextView Apellido = (TextView) view.findViewById(R.id.textView7);
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
+<<<<<<< HEAD
             Dpi.setText(String.format("Dpi: %s", persona.getDpi()));
+=======
+            DPI.setText(String.format("DPI: %s", persona.getDpi()));
+>>>>>>> 6359ef5021b4d49952e4fcc5c9b4d1cb434827ac
             Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
             Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
