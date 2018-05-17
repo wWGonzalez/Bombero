@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         tv1.setText(dato); //Muestra el usuario
         if(dato.equals("")){
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
-            menu_principal();
-            //send();
+            //menu_principal();
+            send();
         }
         else{
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
