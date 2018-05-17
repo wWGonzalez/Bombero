@@ -21,24 +21,17 @@ public class crearRegistro extends AppCompatActivity {
     EditText et1; //recive Nombre
     EditText et2; //Recive Telefono
     EditText et3;//Recive DPI
-
     String telefono="";
-
     String nombre="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_registro);
         et1 = findViewById(R.id.input_name);
         et2 = findViewById(R.id.input_password);
-        et3 = findViewById(R.id.input_dpi);
-
-
+        //et3 = findViewById(R.id.input_dpi);
     }
-
     public void crearFicheroNombre(){
-
         try
         {
             OutputStreamWriter fout=
@@ -46,12 +39,8 @@ public class crearRegistro extends AppCompatActivity {
                             openFileOutput("Nombre.txt", Context.MODE_PRIVATE));
             //nombre=et1.getText().toString();
             quitarAcento(et1.getText().toString());
-
-
-
             fout.write(nombre);
-
-
+            Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
            // Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
         }
@@ -62,16 +51,12 @@ public class crearRegistro extends AppCompatActivity {
     }//finish crearFichero
 
     public void crearFicheroDPI(){
-
         try
         {
             OutputStreamWriter fout=
                     new OutputStreamWriter(
                             openFileOutput("DPI.txt", Context.MODE_PRIVATE));
-
-
-           fout.write(et3.getText().toString());// Escribe en el Fichero
-
+            fout.write(et3.getText().toString());// Escribe en el Fichero
 
             //Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
@@ -84,20 +69,14 @@ public class crearRegistro extends AppCompatActivity {
 
     public void quitarAcento(String c){
         String origin = c;
-
       //  String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ";
         String cadenaNormalize = Normalizer.normalize(origin, Normalizer.Form.NFD);
-
         String cadenaSinAcentos = cadenaNormalize.replaceAll("[^\\p{ASCII}]", "");
         nombre = cadenaSinAcentos;
-
-
     }
-
 
     public void crearFicheros(View view){
         telefono = et3.getText().toString();
-
         if(telefono.equals("")) {
             Toast.makeText(this, "Debe ingresar un Numero de Telefono", Toast.LENGTH_SHORT).show();
         } else {
@@ -111,20 +90,15 @@ public class crearRegistro extends AppCompatActivity {
         }
     }
 
-
     public void crearFicheroTelefono(){
-
             try {
                 OutputStreamWriter fout =
                         new OutputStreamWriter(
                                 openFileOutput("Telefono.txt", Context.MODE_PRIVATE));
                 fout.write(telefono);
                 fout.close();
-
             } catch (Exception ex) {
                 Log.e("Ficheros", "Error al escribir fichero a memoria interna");
             }
-
     }//finish crearFichero
 }
-

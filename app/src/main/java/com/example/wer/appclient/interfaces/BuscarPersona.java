@@ -45,8 +45,19 @@ public class BuscarPersona extends AppCompatActivity {
     String nombre =""; //Almacena el nombre guardado en el fichero interno
     String telefono =""; //Almacena el telefono guardado en el fichero interno
 
+<<<<<<< HEAD
 
 
+=======
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_buscar_persona);
+        inicializar();
+        //Barra Hacia atras
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
 
 
     private void locationStart() {
@@ -154,8 +165,26 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
 
 
+=======
+    private void leerFicheroNombre() {
+        try {
+            BufferedReader fin =
+                    new BufferedReader(
+                            new InputStreamReader(
+                                    openFileInput("Nombre.txt")));
+            String texto = fin.readLine();
+            nombre = texto;
+            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
+            //this.nombre = texto;
+            fin.close();
+        } catch (Exception ex) {
+            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
+        }
+    }
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
 
 
 
@@ -176,18 +205,38 @@ public class BuscarPersona extends AppCompatActivity {
             }else{
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
+<<<<<<< HEAD
 
 
                 if(personas_aux.size() != 0){
                     PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                     listViewPersona.setAdapter(adapter);
+=======
+                personas_aux = personas;
+                //Filtra por nombre guardado en el fichero
+
+                /*
+                for(int i=0; i< personas.size(); i++) {
+                    if (personas.get(i).getTelefono().equals(telefono)) {
+                        personas_aux.add(personas.get(i));
+                    }
+                }
+                */
+                if (personas_aux.size() != 0) {
+                   PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
+                   listViewPersona.setAdapter(adapter);
+
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         }
                     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
                 }
             }
         }

@@ -22,6 +22,7 @@ import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button show;
     Dialog MyDialog;
+    Dialog MyDialog1;
+    Button btn_signup1;
     Button hello;
     ImageView image;
     Button close;
@@ -91,31 +94,32 @@ public class MainActivity extends AppCompatActivity {
         setSingleEvent(mainGrid);
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
-
         tv1 = findViewById(R.id.txtUSer);
-        leerFichero(); // buscar datos denttro del fichero
+        leerFichero(); // buscar datos dentro del fichero
         tv1.setText(dato); //Muestra el usuario
-
         if(dato.equals("")){
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
-            send();
+            menu_principal();
+            //send();
         }
         else{
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
            // Intent o = new Intent(this,PersonaFormulario.class);
            // startActivity(o);
         }
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
             locationStart();
         }
 
-        leerFicheroDPI();
         leerFicheroTelefono();
         leerFicheroNombre();
 
+
+        leerFicheroDPI();
+        leerFicheroTelefono();
+        leerFicheroNombre();
 
     }//Finish onCreate
 
@@ -128,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 dialog.dismiss();
                 switch(which){
                     case 0:
@@ -147,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
         b.show();
     }
 
@@ -293,13 +295,14 @@ public class MainActivity extends AppCompatActivity {
     private class InsertarPersona extends AsyncTask<Void, Void, Boolean> {
         public Boolean doInBackground(Void... params) {
             HttpClient httpClient = new DefaultHttpClient();
-
             HttpPost httpPost = new HttpPost("http://wzwer.pythonanywhere.com/rest/alert/");
             httpPost.setHeader("Content-Type", "application/json");
 
             JSONObject jsonObject = new JSONObject();
             try {
+
                 jsonObject.put("dpi", dpi);
+
                 jsonObject.put("nombre", nombre);
                 jsonObject.put("telefono", telefono);
                 jsonObject.put("coordenadas", coor);
@@ -399,7 +402,6 @@ public class MainActivity extends AppCompatActivity {
                         case 1:
                             MyCustomAlertDialog("Accidente");
                            // sentenciaN;
-
                             break;
                         case 2:
                             MyCustomAlertDialog("Incendio");
@@ -469,11 +471,33 @@ public class MainActivity extends AppCompatActivity {
         MyDialog.show();
     }
 
+    public void menu_principal(){
+        MyDialog1 = new Dialog(MainActivity.this);
+        MyDialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        MyDialog1.setContentView(R.layout.activity_crear_registro);
+        MyDialog1.setTitle("My Custom Dialog");
+
+        btn_signup1 = (Button)MyDialog1.findViewById(R.id.btn_signup);
+
+        btn_signup1.setEnabled(true);
+
+        btn_signup1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(), "Hello, I'm Custom Alert Dialog", Toast.LENGTH_LONG).show();
+                MyDialog1.cancel();
+            }
+        });
+
+        MyDialog1.show();
+    }
+
     public void send() {
-        Intent i = new Intent(this, crearRegistro.class);
+        Intent i = new Intent(MainActivity.this, crearRegistro.class);
         // i.putExtra("dato",et1.getText().toString());
         startActivity(i);
     }
+
 
     //para entrar al activity de buscar persona
     public void btn_buscarPersona(View view){
