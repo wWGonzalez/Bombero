@@ -182,8 +182,6 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
-
-
     private void leerFicheroNombre() {
         try {
             BufferedReader fin =
@@ -248,7 +246,7 @@ public class BuscarPersona extends AppCompatActivity {
                    PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                    listViewPersona.setAdapter(adapter);
 
-                    /*
+
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -258,7 +256,7 @@ public class BuscarPersona extends AppCompatActivity {
                             startActivity(i);
                         }
                     });
-                    */
+
 
                 }
             }

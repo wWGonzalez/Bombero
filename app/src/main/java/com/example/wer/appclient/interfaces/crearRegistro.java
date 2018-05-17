@@ -32,7 +32,7 @@ public class crearRegistro extends AppCompatActivity {
         setContentView(R.layout.activity_crear_registro);
         et1 = findViewById(R.id.input_name);
         et2 = findViewById(R.id.input_password);
-        et3 = findViewById(R.id.input_dpi);
+        //et3 = findViewById(R.id.input_dpi);
 
 
     }
@@ -48,9 +48,7 @@ public class crearRegistro extends AppCompatActivity {
 
             fout.write(nombre);
 
-<<<<<<< HEAD
             Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
-=======
 
            // Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
             fout.close();
@@ -74,7 +72,6 @@ public class crearRegistro extends AppCompatActivity {
 
 
             //Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
->>>>>>> a8d0e1cdeca57861f2048f768a73423e28e18115
             fout.close();
         }
         catch (Exception ex)
@@ -93,20 +90,6 @@ public class crearRegistro extends AppCompatActivity {
         nombre = cadenaSinAcentos;
     }
 
-<<<<<<< HEAD
-    public void crearFicheroTelefono(View view){
-        try
-        {
-            OutputStreamWriter fout=
-                    new OutputStreamWriter(
-                            openFileOutput("Telefono.txt", Context.MODE_PRIVATE));
-            fout.write(et2.getText().toString());
-            Toast.makeText(this, "Fichero creado correctamente",Toast.LENGTH_SHORT).show();
-            fout.close();
-            crearFicheroNombre();
-            Intent o = new Intent(this,MainActivity.class);
-=======
-
     public void crearFicheros(View view){
         telefono = et3.getText().toString();
 
@@ -119,11 +102,9 @@ public class crearRegistro extends AppCompatActivity {
 
             Toast.makeText(this, "Fichero creado correctamente", Toast.LENGTH_SHORT).show();
             Intent o = new Intent(this, MainActivity.class);
->>>>>>> a8d0e1cdeca57861f2048f768a73423e28e18115
             startActivity(o);
         }
     }
-
 
     public void crearFicheroTelefono(){
 

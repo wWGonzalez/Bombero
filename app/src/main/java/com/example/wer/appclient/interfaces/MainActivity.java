@@ -112,17 +112,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             locationStart();
         }
-<<<<<<< HEAD
+
         leerFicheroTelefono();
         leerFicheroNombre();
-=======
+
 
         leerFicheroDPI();
         leerFicheroTelefono();
         leerFicheroNombre();
 
-
->>>>>>> a8d0e1cdeca57861f2048f768a73423e28e18115
     }//Finish onCreate
 
     private void showDialog(){

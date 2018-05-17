@@ -1,44 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="360dp"
     android:layout_height="500dp"
     android:layout_gravity="center_vertical|center_horizontal"
     android:orientation="vertical">
-=======
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.wer.appclient.interfaces.crearRegistro">
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="60dp">
-        <EditText
-            android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombre_usuario"
-            android:singleLine="true" />
-        <EditText
-            android:id="@+id/input_dpi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="DPI"
-
-            android:singleLine="true" />
-        <EditText
-            android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/numero_telefono"
-          />
->>>>>>> a8d0e1cdeca57861f2048f768a73423e28e18115
 
     <EditText
         android:id="@+id/input_name"
@@ -62,7 +27,6 @@
         android:layout_marginTop="50dp">
         <Button
             android:id="@+id/btn_signup"
-<<<<<<< HEAD
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:background="@drawable/boton_redondeado"
@@ -72,14 +36,3 @@
             android:textStyle="bold" />
     </FrameLayout>
 </LinearLayout>
-=======
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@android:color/holo_red_light"
-            android:onClick="crearFicheros"
-            android:text="Guardar"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
->>>>>>> a8d0e1cdeca57861f2048f768a73423e28e18115
