@@ -9,7 +9,7 @@
     tools:context="com.example.wer.appclient.interfaces.crearRegistro">
 
     <LinearLayout
-        android:background="#33FFFFFF"
+        android:background="@drawable/ventana_principal_redondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
