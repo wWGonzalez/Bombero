@@ -6,15 +6,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </LinearLayout>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/textView5"
+            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/textView6"
@@ -28,24 +32,39 @@
             android:layout_below="@+id/textView6"
             android:layout_alignParentStart="true" />
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
             android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/textView7"
+<<<<<<< HEAD
+            android:text="TextView" />
+
+=======
             android:layout_alignParentStart="true" />
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
             android:id="@+id/textView9"
-            android:layout_below="@+id/textView8"
-            android:layout_alignParentStart="true" />
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView10"
-            android:layout_below="@+id/textView9"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView8"
+<<<<<<< HEAD
+            android:text="TextView" />
+
+=======
             android:layout_alignParentStart="true" />
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView9"
+<<<<<<< HEAD
+            android:text="TextView" />
+
+=======
+            android:layout_alignParentStart="true" />
+>>>>>>> 8c04cebf70a0a32968799a795eafc64e6cc93cb1
 </RelativeLayout>
