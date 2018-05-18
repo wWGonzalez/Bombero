@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         leerFicheroTelefono();
         leerFicheroNombre();
 
-
         leerFicheroDPI();
         leerFicheroTelefono();
         leerFicheroNombre();
@@ -140,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         locale = new Locale("es");
+                        config.locale =locale;
+                        break;
+                    case 2:
+                        locale = new Locale("mam");
                         config.locale =locale;
                         break;
                 }
@@ -169,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_pagina_web:
                 //crear nuevo aviso
-                Uri uri = Uri.parse("http://www.google.com/");
+                Uri uri = Uri.parse("http://bomberossanpedro.pythonanywhere.com/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 return true;

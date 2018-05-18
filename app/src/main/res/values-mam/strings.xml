@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        //Menu Principal
+        <string name="alerta">B´aux Ra´yina</string>
+        <string name="maternidad">Txub´ajin</string>
+        <string name="accidentes">Juni</string>
+        <string name="incendios">Q´ojtq´aq´in</string>
+        <string name="primeros_auxilios">Tnejil q´an´en</string>
+
+        //Crear registro
+        <string name="nombre_usuario">Nombre de Usuario</string>
+        <string name="numero_telefono">Número Teléfonico</string>
+        <string name="guardar">Guardar</string>
+
+        //Boton superior derecho
+        <string name="button_send">Enviar</string>
+        <string name="pagina_web">Paqanil</string>
+        <string name="historia">Tqanil</string>
+        <string name="quienes_somos">Alkyego´</string>
+        <string name="desarrolladores">Desarrolladores</string>
+        <string name="registro_de_alertas">Alertas Enviadas</string>
+        <string name="idioma">Yol</string>
+        <string name="salir">Salir</string>
+
+        //menu emergente
+        <string name="desea_enviar_alerta">¿Desea Enviar la Alerta?</string>
+        <string name="aceptar">ACEPTAR</string>
+        <string name="cancelar">CANCELAR</string>
+    </resources>

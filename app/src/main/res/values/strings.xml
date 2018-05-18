@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">FIREFIGHTER</string>
+    <string name="app_name">Firefighter</string>
     <string name="title_activity_buscar_persona">BuscarPersona</string>
 
     <string name="str_en">Inglés</string>
     <string name="str_es">Español</string>
-    <string name="mam">Mam</string>
+    <string name="str_mam">Mam</string>
 
     //Menu Principal
     <string name="alerta">Alerta</string>
@@ -36,7 +36,7 @@
     <string-array name="languages">
         <item>@string/str_en</item>
         <item>@string/str_es</item>
-        <item>@string/mam</item>
+        <item>@string/str_mam</item>
 
     </string-array>
 
