@@ -6,13 +6,14 @@ import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 
 public class Persona {
-    String dpi;
+   // String dpi;
     String nombre;
     String telefono;
     String coordenadas;
     String direccion;
     String emergencia;
 
+    /*
     public String getDpi() {
         return dpi;
     }
@@ -20,6 +21,8 @@ public class Persona {
     public void setDpi(String dpi) {
         this.dpi = dpi;
     }
+    */
+
 
     public String getNombre() {
         return nombre;

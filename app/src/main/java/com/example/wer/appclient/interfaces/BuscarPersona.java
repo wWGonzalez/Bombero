@@ -203,7 +203,7 @@ public class BuscarPersona extends AppCompatActivity {
                             new InputStreamReader(
                                     openFileInput("Telefono.txt")));
             String texto = fin.readLine();
-            nombre = texto;
+            telefono = texto;
             //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
             //this.nombre = texto;
             fin.close();
@@ -229,21 +229,24 @@ public class BuscarPersona extends AppCompatActivity {
 
                 ArrayList<Persona> personas = Persona.obtenerPersonas(result);
                 ArrayList<Persona> personas_aux = new ArrayList();
-                personas_aux = personas;
+                //personas_aux = personas; //Asigna todos los datos al Array persona_aux
                 //Filtra por nombre guardado en el fichero
 
-                /*
+
                 for(int i=0; i< personas.size(); i++) {
                     if (personas.get(i).getTelefono().equals(telefono)) {
                         personas_aux.add(personas.get(i));
                     }
                 }
-                */
+
                 if (personas_aux.size() != 0) {
                     PersonaAdapter adapter = new PersonaAdapter(BuscarPersona.this, personas_aux);
                     listViewPersona.setAdapter(adapter);
 
+                /*     
                     listViewPersona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent i = new Intent(BuscarPersona.this, MainActivity.class);
@@ -251,7 +254,9 @@ public class BuscarPersona extends AppCompatActivity {
                             i.putExtra("id_persona", ((Persona) parent.getAdapter().getItem(position)).getDpi());
                             startActivity(i);
                         }
+
                     });
+                 */
                 }
             }
         }

@@ -40,7 +40,7 @@ public class PersonaAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.layout_persona, parent, false);
 
-        TextView Dpi = (TextView) view.findViewById(R.id.textView5);
+       // TextView Dpi = (TextView) view.findViewById(R.id.textView5);
         TextView Nombre = (TextView) view.findViewById(R.id.textView6);
         TextView Telefono = (TextView) view.findViewById(R.id.textView7);
         TextView Coordenadas = (TextView) view.findViewById(R.id.textView8);
@@ -50,7 +50,7 @@ public class PersonaAdapter extends BaseAdapter {
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
 
-            Dpi.setText(String.format("DPI: %s", persona.getDpi()));
+          //  Dpi.setText(String.format("DPI: %s", persona.getDpi()));
             Nombre.setText(String.format("Nombre: %s", persona.getNombre()));
             Telefono.setText(String.format("Telefono: %s", persona.getTelefono()));
             Coordenadas.setText(String.format("Coordenadas: %s", persona.getCoordenadas()));
