@@ -71,7 +71,9 @@ public class BuscarPersona extends AppCompatActivity {
         this.listViewPersona = (ListView) findViewById(R.id.listViewPersonas);
         tv1 = findViewById(R.id.textViewG1);
         tv2 = findViewById(R.id.textViewG2);
-        new getPersonas().execute("http://wzwer.pythonanywhere.com/rest/alert/");
+        //new getPersonas().execute("http://wzwer.pythonanywhere.com/rest/alert/");
+        new getPersonas().execute("http://bomberossanpedro.pythonanywhere.com/rest/alert/");
+        http://bomberossanpedro.pythonanywhere.com/rest/alert/
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {

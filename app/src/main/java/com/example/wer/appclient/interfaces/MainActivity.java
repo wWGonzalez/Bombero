@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
     private class InsertarPersona extends AsyncTask<Void, Void, Boolean> {
         public Boolean doInBackground(Void... params) {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost("http://wzwer.pythonanywhere.com/rest/alert/");
+            HttpPost httpPost = new HttpPost("http://bomberossanpedro.pythonanywhere.com/rest/alert/");
             httpPost.setHeader("Content-Type", "application/json");
 
             JSONObject jsonObject = new JSONObject();
