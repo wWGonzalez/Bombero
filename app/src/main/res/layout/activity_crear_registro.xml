@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/emerceng"
+    android:background="@drawable/emergencias"
     tools:context="com.example.wer.appclient.interfaces.crearRegistro">
 
     <LinearLayout
-        android:background="@drawable/ventana_principal_redondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="100dp"
-        android:layout_marginHorizontal="30dp">
+        android:background="@drawable/ventana_principal_redondo"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/input_name"
@@ -28,14 +27,14 @@
             android:id="@+id/input_telefono"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_margin="20dp"
             android:hint="@string/numero_telefono"
             android:textColor="@android:color/background_light" />
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_marginTop="50dp">
 
             <Button
                 android:id="@+id/btn_signup"
