@@ -40,4 +40,10 @@
 
     </string-array>
 
+    //Desarrolladores
+
+    <string name="titulo1">Equipo de trabajo</string>
+    <string name="l1">Aplicacion mobil creada para que las personas puedan</string>
+    <string name="l2">alertartar a los bomberos de manera precisa y oportuna</string>
+
 </resources>
