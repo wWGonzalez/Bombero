@@ -73,6 +73,7 @@ public class crearRegistro extends AppCompatActivity {
             Toast.makeText(this, "Datos ingresados Correcctamente", Toast.LENGTH_SHORT).show();
             Intent o = new Intent(this, MainActivity.class);
             startActivity(o);
+            finish(); //Cierra activity
         }
     }
 

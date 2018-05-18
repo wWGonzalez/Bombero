@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
 
         //Set Event
@@ -98,11 +101,13 @@ public class MainActivity extends AppCompatActivity {
         leerFichero(); // buscar datos dentro del fichero
         tv1.setText(dato); //Muestra el usuario
         if(dato.equals("")){
+
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
             //menu_principal();
-            send();
+            send(); //Abre crear Formulario
         }
         else{
+
             Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
            // Intent o = new Intent(this,PersonaFormulario.class);
            // startActivity(o);
@@ -495,10 +500,13 @@ public class MainActivity extends AppCompatActivity {
         MyDialog1.show();
     }
 
+
+    //Envia a activity crearFormulario
     public void send() {
         Intent i = new Intent(MainActivity.this, crearRegistro.class);
         // i.putExtra("dato",et1.getText().toString());
         startActivity(i);
+        finish(); //Finaliza activiy actual par abrir crear registro
     }
 
 
