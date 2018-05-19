@@ -22,7 +22,6 @@ public class SplashScreen extends AppCompatActivity {
         leerFichero(); // buscar datos dentro del fichero
         //tv1.setText(dato); //Muestra el usuario
         if(dato.equals("")){
-
             Intent intent = new Intent(this, crearRegistro.class);
             startActivity(intent);
             finish();

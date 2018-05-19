@@ -63,12 +63,9 @@ public class MainActivity extends AppCompatActivity {
     Button hello;
     ImageView image;
     Button close;
-
     TextView tv1;
     private String dato="";
-
     GridLayout mainGrid;
-
     Menu menu;
     //Variables para Post
     public String emergencia;
@@ -87,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
 
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
 
@@ -440,19 +434,19 @@ public class MainActivity extends AppCompatActivity {
         image = MyDialog.findViewById(R.id.imagenView);
 
         if (emerg == "Maternidad"){
-            Drawable myDrawable = getResources().getDrawable(R.drawable.me_time);
+            Drawable myDrawable = getResources().getDrawable(R.drawable.p_maternidad);
             image.setImageDrawable(myDrawable);
         }
         else if(emerg == "Accidente"){
-            Drawable myDrawable = getResources().getDrawable(R.drawable.family_time);
+            Drawable myDrawable = getResources().getDrawable(R.drawable.p_accidentes);
             image.setImageDrawable(myDrawable);
         }
         else if(emerg == "Incendio"){
-            Drawable myDrawable = getResources().getDrawable(R.drawable.lovely_time);
+            Drawable myDrawable = getResources().getDrawable(R.drawable.p_incendios);
             image.setImageDrawable(myDrawable);
         }
         else if(emerg == "Primeros Auxilios"){
-            Drawable myDrawable = getResources().getDrawable(R.drawable.team_time);
+            Drawable myDrawable = getResources().getDrawable(R.drawable.p_primeros_auxilios);
             image.setImageDrawable(myDrawable);
         }
 
@@ -545,7 +539,6 @@ public class MainActivity extends AppCompatActivity {
             fin.close();
         } catch (Exception ex) {
             Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-
         }
     }
 }
