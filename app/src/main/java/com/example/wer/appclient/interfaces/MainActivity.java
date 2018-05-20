@@ -34,6 +34,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     Button close;
     TextView tv1;
     private String dato="";
+    LinearLayout linearLayout;
     GridLayout mainGrid;
     Menu menu;
     //Variables para Post
@@ -85,15 +87,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
+        //linearLayout = (LinearLayout) findViewById(R.id.mainGrid);
 
         //Set Event
-        setSingleEvent(mainGrid);
+        //setSingleEvent(mainGrid);
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
-        tv1 = findViewById(R.id.txtUSer);
+        //tv1 = findViewById(R.id.txtUSer);
         leerFichero(); // buscar datos dentro del fichero
-        tv1.setText(dato); //Muestra el usuario
+        //tv1.setText(dato); //Muestra el usuario
         if(dato.equals("")){
 
             Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
