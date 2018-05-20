@@ -31,7 +31,7 @@ public class SplashScreen extends AppCompatActivity {
             startActivity(intent);
             finish();
 
-           // Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
             // Intent o = new Intent(this,PersonaFormulario.class);
             // startActivity(o);
         }

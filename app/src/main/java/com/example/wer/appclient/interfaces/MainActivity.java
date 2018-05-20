@@ -23,6 +23,7 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -66,8 +67,18 @@ public class MainActivity extends AppCompatActivity {
     Button close;
     TextView tv1;
     private String dato="";
-    LinearLayout linearLayout;
-    GridLayout mainGrid;
+
+
+    //LinerLayout de cada tipo de emergencia
+    LinearLayout linearLayout0;
+    LinearLayout linearLayout1;
+    LinearLayout linearLayout2;
+    LinearLayout linearLayout3;
+    LinearLayout linearLayout4;
+    LinearLayout linearLayout5;
+
+
+    LinearLayout mainGrid;
     Menu menu;
     //Variables para Post
     public String emergencia;
@@ -87,27 +98,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //linearLayout = (LinearLayout) findViewById(R.id.mainGrid);
-
+        mainGrid = (LinearLayout) findViewById(R.id.mainGrid);
+        linearLayout0 = findViewById(R.id.linear_0);
+        linearLayout1 = findViewById(R.id.linear_1);
+        linearLayout2 = findViewById(R.id.linear_2);
+        linearLayout3 = findViewById(R.id.linear_3);
+        linearLayout4 = findViewById(R.id.linear_4);
+        linearLayout5 = findViewById(R.id.linear_5);
         //Set Event
-        //setSingleEvent(mainGrid);
+       // setSingleEvent(mainGrid);
+        setLiner0(linearLayout0);
+        setLiner1(linearLayout1);
+        setLiner2(linearLayout2);
+        setLiner3(linearLayout3);
+        setLiner4(linearLayout4);
+        setLiner4(linearLayout5);
+
+
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
         //tv1 = findViewById(R.id.txtUSer);
-        leerFichero(); // buscar datos dentro del fichero
         //tv1.setText(dato); //Muestra el usuario
-        if(dato.equals("")){
 
-            Toast.makeText(this,"No existe registro", Toast.LENGTH_SHORT).show();
-            //menu_principal();
-            send(); //Abre crear Formulario
-        }
-        else{
-
-            Toast.makeText(this,"Bienvendio "+dato, Toast.LENGTH_SHORT).show();
-           // Intent o = new Intent(this,PersonaFormulario.class);
-           // startActivity(o);
-        }
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
@@ -122,6 +134,14 @@ public class MainActivity extends AppCompatActivity {
         leerFicheroNombre();
 
     }//Finish onCreate
+
+
+
+
+
+
+
+
 
     private void showDialog(){
         AlertDialog.Builder b = new AlertDialog.Builder(this);
@@ -335,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }//Finaliza Insertar
 
+
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
         MainActivity mainActivity;
@@ -342,18 +363,16 @@ public class MainActivity extends AppCompatActivity {
         public MainActivity getMainActivity() {
             return mainActivity;
         }
-
         public void setMainActivity(MainActivity mainActivity) {
             this.mainActivity = mainActivity;
         }
+
         @Override
         public void onLocationChanged(Location loc) {
             // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
             // debido a la deteccion de un cambio de ubicacion
-
             loc.getLatitude();
             loc.getLongitude();
-
             String Text = "" + loc.getLatitude() + "," + loc.getLongitude();
             //tv1.setText(Text);
             //String Text =loc.getLatitude()+ loc.getLongitude()+"";
@@ -390,30 +409,95 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setSingleEvent(GridLayout mainGrid) {
+
+    //Establece evento para Liner 0
+    private  void setLiner0(LinearLayout liner){
+       // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("Maternidad");
+            }
+        });
+    }
+
+    //Establece evento para Liner 1
+    private  void setLiner1(LinearLayout liner){
+        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("Accidente");
+            }
+        });
+    }
+
+    //Establece evento para Liner 2
+    private  void setLiner2(LinearLayout liner){
+        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("Incendio");
+            }
+        });
+    }
+
+    //Establece evento para Liner 3
+    private  void setLiner3(LinearLayout liner){
+        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("Primeros Auxilios");
+            }
+        });
+    }
+
+    //Establece evento para Liner 4
+    private  void setLiner4(LinearLayout liner){
+        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("PendienteI");
+            }
+        });
+    }
+
+    //Establece evento para Liner 5
+    private  void setLiner5(LinearLayout liner){
+        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
+        liner.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                MyCustomAlertDialog("PendienteII");
+            }
+        });
+    }
+
+
+
+    private void setSingleEvent(LinearLayout mainGrid) {
         //Loop all child item of Main Grid
         for (int i = 0; i < mainGrid.getChildCount(); i++) {
             //You can see , all child item is CardView , so we just cast object to CardView
-            CardView cardView = (CardView) mainGrid.getChildAt(i);
+            LinearLayout card = (LinearLayout) mainGrid.getChildAt(i);
             final int finalI = i;
-            cardView.setOnClickListener(new View.OnClickListener() {
+            card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     switch(finalI) {
                         case 0:
-                            MyCustomAlertDialog("Maternidad");
+                           // hola();
+                          //  MyCustomAlertDialog("Maternidad");
+                            //Toast.makeText(this, "Maternidad", Toast.LENGTH_SHORT).show();
                             break;
                         case 1:
-                            MyCustomAlertDialog("Accidente");
+                         //   MyCustomAlertDialog("Accidente");
                            // sentenciaN;
                             break;
                         case 2:
-                            MyCustomAlertDialog("Incendio");
+                          //  MyCustomAlertDialog("Incendio");
                            // sentenciaN;
                             break;
                         case 3:
-                            MyCustomAlertDialog("Primeros Auxilios");
-                           // sentenciaN;
+                          //  MyCustomAlertDialog("Primeros Auxilios");
+                            // sentenciaN;
                             break;
                     }
                 }
@@ -421,19 +505,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
+
     //Llamar menu emergente
     public void MyCustomAlertDialog(String m){
-        final String emerg =m;
+        TextView alerta;
+
+        final String emerg =m; //recive tipo de emergencia
 
         MyDialog = new Dialog(MainActivity.this);
         MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         MyDialog.setContentView(R.layout.activity_menu_emergente);
 
-        MyDialog.setTitle("My Custom Dialog");
+      //  MyDialog.setTitle("My Custom Dialog");
 
         hello = (Button) MyDialog.findViewById(R.id.hello);
         close = (Button) MyDialog.findViewById(R.id.close);
         image = MyDialog.findViewById(R.id.imagenView);
+        alerta = MyDialog.findViewById(R.id.txtAlert);
 
         if (emerg == "Maternidad"){
             Drawable myDrawable = getResources().getDrawable(R.drawable.p_maternidad);
@@ -473,37 +563,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         MyDialog.show();
-    }
+    }//Finaliza menu emergente
 
-    public void menu_principal(){
-        MyDialog1 = new Dialog(MainActivity.this);
-        MyDialog1.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        MyDialog1.setContentView(R.layout.activity_crear_registro);
-        MyDialog1.setTitle("My Custom Dialog");
-
-        btn_signup1 = (Button)MyDialog1.findViewById(R.id.btn_signup);
-
-        btn_signup1.setEnabled(true);
-
-        btn_signup1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "Hello, I'm Custom Alert Dialog", Toast.LENGTH_LONG).show();
-                MyDialog1.cancel();
-            }
-        });
-
-        MyDialog1.show();
-    }
-
-
-    //Envia a activity crearFormulario
-    public void send() {
-        Intent i = new Intent(MainActivity.this, crearRegistro.class);
-        // i.putExtra("dato",et1.getText().toString());
-        startActivity(i);
-        finish(); //Finaliza activiy actual par abrir crear registro
-    }
 
 
     //para entrar al activity de buscar persona
@@ -526,21 +587,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Historia.class);
         startActivity(intent);
     }
-    //Metodo para leer fichero
-    private void leerFichero() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("Nombre.txt")));
 
-            String texto = fin.readLine();
-
-            // tv1.setText(texto);
-            this.dato = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
 }
