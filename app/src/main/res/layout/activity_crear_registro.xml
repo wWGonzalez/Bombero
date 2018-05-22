@@ -15,14 +15,12 @@
         android:background="@drawable/ventana_principal_redondo"
         android:gravity="center"
         android:orientation="vertical">
-
         <EditText
             android:id="@+id/input_name"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:hint="@string/nombre_usuario"
             android:textColor="@android:color/background_light" />
-
         <EditText
             android:id="@+id/input_telefono"
             android:layout_width="250dp"
@@ -30,12 +28,10 @@
             android:layout_margin="20dp"
             android:hint="@string/numero_telefono"
             android:textColor="@android:color/background_light" />
-
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp">
-
             <Button
                 android:id="@+id/btn_signup"
                 android:layout_width="150dp"

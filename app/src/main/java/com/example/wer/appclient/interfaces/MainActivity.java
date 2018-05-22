@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     TextView tv1;
     private String dato="";
 
-
     //LinerLayout de cada tipo de emergencia
     LinearLayout linearLayout0;
     LinearLayout linearLayout1;
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout3;
     LinearLayout linearLayout4;
     LinearLayout linearLayout5;
-
 
     LinearLayout mainGrid;
     Menu menu;
@@ -103,17 +101,12 @@ public class MainActivity extends AppCompatActivity {
         linearLayout1 = findViewById(R.id.linear_1);
         linearLayout2 = findViewById(R.id.linear_2);
         linearLayout3 = findViewById(R.id.linear_3);
-        linearLayout4 = findViewById(R.id.linear_4);
-        linearLayout5 = findViewById(R.id.linear_5);
         //Set Event
        // setSingleEvent(mainGrid);
         setLiner0(linearLayout0);
         setLiner1(linearLayout1);
         setLiner2(linearLayout2);
         setLiner3(linearLayout3);
-        setLiner4(linearLayout4);
-        setLiner4(linearLayout5);
-
 
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
@@ -128,20 +121,10 @@ public class MainActivity extends AppCompatActivity {
 
         leerFicheroTelefono();
         leerFicheroNombre();
-
         leerFicheroDPI();
         leerFicheroTelefono();
         leerFicheroNombre();
-
     }//Finish onCreate
-
-
-
-
-
-
-
-
 
     private void showDialog(){
         AlertDialog.Builder b = new AlertDialog.Builder(this);
@@ -355,7 +338,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }//Finaliza Insertar
 
-
     /* Aqui empieza la Clase Localizacion */
     public class Localizacion implements LocationListener {
         MainActivity mainActivity;
@@ -409,7 +391,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     //Establece evento para Liner 0
     private  void setLiner0(LinearLayout liner){
        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
@@ -450,28 +431,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Establece evento para Liner 4
-    private  void setLiner4(LinearLayout liner){
-        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
-        liner.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                MyCustomAlertDialog("PendienteI");
-            }
-        });
-    }
-
-    //Establece evento para Liner 5
-    private  void setLiner5(LinearLayout liner){
-        // LinearLayout menu_photos = (LinearLayout )findViewById(R.id.linear_semestre1);
-        liner.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                MyCustomAlertDialog("PendienteII");
-            }
-        });
-    }
-
-
-
     private void setSingleEvent(LinearLayout mainGrid) {
         //Loop all child item of Main Grid
         for (int i = 0; i < mainGrid.getChildCount(); i++) {
@@ -504,9 +463,6 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-
-
-
 
     //Llamar menu emergente
     public void MyCustomAlertDialog(String m){
@@ -565,8 +521,6 @@ public class MainActivity extends AppCompatActivity {
         MyDialog.show();
     }//Finaliza menu emergente
 
-
-
     //para entrar al activity de buscar persona
     public void btn_buscarPersona(View view){
         Intent intent = new Intent(MainActivity.this, BuscarPersona.class);
@@ -587,5 +541,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Historia.class);
         startActivity(intent);
     }
-
 }
