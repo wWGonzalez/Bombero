@@ -1,0 +1,19 @@
+alt f2   regresar a la terminal altf1
+
+ps      muestra las terminales
+who     
+
+ps -efa   muestra todos los programas que se estan ejecutando en el sistema
+ps -f
+
+ps -efa | grep ping
+
+who -a -H  muestra en que terminal esta cada usuario
+
+sudo /etc/init.d/ssh restart
+
+ls -l
+
+kill -9 "primer numro de pa primera coluna"
+
+shutdown

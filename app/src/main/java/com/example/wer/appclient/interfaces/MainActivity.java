@@ -3,10 +3,12 @@ package com.example.wer.appclient.interfaces;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 //import android.content.SharedPreferences;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 //import android.preference.PreferenceManager;
 import android.content.res.Configuration;
@@ -17,6 +19,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.Settings;
@@ -541,4 +545,43 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Historia.class);
         startActivity(intent);
     }
+
+    private BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo ni = manager.getActiveNetworkInfo();
+            onNetworkChange(ni);
+        }
+    };
+
+
+    @Override
+    protected void onPause() {
+        unregisterReceiver(networkStateReceiver);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(networkStateReceiver, new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    private void onNetworkChange(NetworkInfo networkInfo) {
+        if (networkInfo != null) {
+            if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
+                Log.d("MenuActivity", "CONNECTED");
+                Toast.makeText(this,"Conectado a internet",Toast.LENGTH_SHORT).show();
+            } else {
+                Log.d("MenuActivity", "DISCONNECTED");
+                Toast.makeText(this,"No Conectado",Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            Toast.makeText(this,"Problemas al conectarse a la Red",Toast.LENGTH_SHORT).show();
+            // finish();
+        }
+    }
+
 }
