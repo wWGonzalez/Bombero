@@ -33,6 +33,11 @@
         android:orderInCategory="200"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_tutorial"
+        android:orderInCategory="200"
+        android:title="@string/tutorial"
+        app:showAsAction="never" />
     <item android:id="@+id/action_salir"
         android:title="@string/salir"
         android:orderInCategory="200"

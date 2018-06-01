@@ -25,6 +25,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -94,7 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Locale locale;
     private Configuration config = new Configuration();
-
+    //Variables tuto
+    private ViewPager slideViewPager;
+    private LinearLayout dotLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -199,6 +202,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_cambiar_idioma:
                 //crear nuevo aviso
                 showDialog();
+                return true;
+            case R.id.action_tutorial:
+                abrir_tutorial(null);
                 return true;
             case R.id.action_salir:
                 finish();
@@ -533,6 +539,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrir_desarrolladores(View view){
         Intent intent = new Intent(MainActivity.this, desarrolladores.class);
+        startActivity(intent);
+    }
+
+    public void abrir_tutorial(View view){
+        Intent intent = new Intent(MainActivity.this, tuto.class);
         startActivity(intent);
     }
 

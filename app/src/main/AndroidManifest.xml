@@ -17,14 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".interfaces.MainActivity">
-        </activity>
+        <activity android:name=".interfaces.MainActivity"></activity>
         <activity
             android:name=".interfaces.SplashScreen"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,7 +33,7 @@
         <activity
             android:name=".interfaces.crearRegistro"
             android:label="Registrar Datos"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".interfaces.MenuEmergente" />
         <activity
             android:name=".interfaces.Historia"
@@ -45,8 +44,12 @@
         <activity
             android:name=".interfaces.quienes_somos"
             android:label="¿Quienes Somos?" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".interfaces.tuto"></activity>
     </application>
+
 </manifest>
