@@ -40,7 +40,7 @@ public class SliderAdapter extends PagerAdapter{
             "Envíe alertas para casos de maternidad de una manera muy sencilla y rápida.",
             "Si necesita enviar una alerta relacionada a un accidente, puede enviarla de forma rápida presionando el ícono y le atenderemos lo más pronto posible.",
             "En casos de incendios solo debe presionar el botón correspondiente a Incendios y la alerta se envía automáticamente para que pueda ser atendida.",
-            "En caso de que necesite primeros auxilios sólo debe presionar el botón de Primeros Auxilios y de inmediato tendremos los daots para poder atenderlo."
+            "En caso de que necesite primeros auxilios sólo debe presionar el botón de Primeros Auxilios y de inmediato tendremos los datos para poder atenderlo."
     };
 
     @Override
