@@ -15,6 +15,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <!--Fila 1-->
+
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Desarrolladores de App y Api"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,8 +58,8 @@
                         android:onClick="llamar_luis"
                         android:textSize="18sp" />
                 </LinearLayout>
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,6 +128,124 @@
                         android:textAlignment="center"
                         android:textColor="@color/colorTextIcons"
                         android:onClick="llamar_gerber"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <!--Semestre 3-->
+                <LinearLayout
+                    android:id="@+id/linear_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/desarrolladores"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/image_willy"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/willy" />
+                    <TextView
+                        android:id="@+id/txt_semestre6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/alertas_redondos"
+                        android:padding="8dp"
+                        android:text="Willy De León"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextIcons"
+                        android:onClick="llamar_willy"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Creador de Iconos"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <!--Semestre 3-->
+                <LinearLayout
+                    android:id="@+id/linear_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/desarrolladores"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/image_leo"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/leo" />
+                    <TextView
+                        android:id="@+id/txt_semestre7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/alertas_redondos"
+                        android:padding="8dp"
+                        android:text="Leonardo Velasquez"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextIcons"
+                        android:onClick="llamar_leo"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coordinador de Ing en Sistemas"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <!--Semestre 3-->
+                <LinearLayout
+                    android:id="@+id/linear_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/desarrolladores"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/image_ing"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ing" />
+                    <TextView
+                        android:id="@+id/txt_semestre8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/alertas_redondos"
+                        android:padding="8dp"
+                        android:text="Bayron Velásquez"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorTextIcons"
+                        android:onClick="llamar_ing"
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>

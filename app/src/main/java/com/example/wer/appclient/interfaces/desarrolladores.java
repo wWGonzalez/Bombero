@@ -44,4 +44,21 @@ public class desarrolladores extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+    public void llamar_willy(View view){
+        Uri uri = Uri.parse("https://www.facebook.com/profile.php?id=100001312398888/");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+    public void llamar_leo(View view){
+        Uri uri = Uri.parse("https://www.facebook.com/profile.php?id=100003854704216/");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+    public void llamar_ing(View view){
+        Uri uri = Uri.parse("https://www.facebook.com/profile.php?id=100001260453851/");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+
 }
