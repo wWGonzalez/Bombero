@@ -47,6 +47,7 @@ public class PersonaAdapter extends BaseAdapter {
         TextView Direccion = (TextView) view.findViewById(R.id.textView9);
         TextView Emergencia = (TextView) view.findViewById(R.id.textView10);
 
+
         Persona persona = this.personaArrayList.get(position);
         if(persona != null){
 

@@ -27,20 +27,26 @@
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:hint="@string/numero_telefono"
+            android:ems="10"
+            android:maxLength="8"
+            android:inputType="phone"
             android:textColor="@android:color/background_light" />
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp">
+
             <Button
                 android:id="@+id/btn_signup"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:background="@drawable/boton_redondeado"
-                android:onClick="crearFicheros"
+                android:onClick="Guardar"
                 android:text="Siguiente"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
         </FrameLayout>
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

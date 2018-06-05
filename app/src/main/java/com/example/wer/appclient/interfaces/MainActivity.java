@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 //import android.content.SharedPreferences;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 //import android.preference.PreferenceManager;
 import android.content.res.Configuration;
@@ -86,9 +87,8 @@ public class MainActivity extends AppCompatActivity {
     //Variables para Post
     public String emergencia;
     Persona persona;
-    String nombre="";
-    String telefono="";
-    String dpi="";
+
+
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
@@ -126,11 +126,10 @@ public class MainActivity extends AppCompatActivity {
             locationStart();
         }
 
-        leerFicheroTelefono();
-        leerFicheroNombre();
-        leerFicheroDPI();
-        leerFicheroTelefono();
-        leerFicheroNombre();
+        SharedPreferences nombre = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        Toast.makeText(this,"Bienvendio "+nombre.getString("name",""), Toast.LENGTH_SHORT).show();
+
+
     }//Finish onCreate
 
     private void showDialog(){
@@ -214,54 +213,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Leer Ficheros
-    private void leerFicheroNombre() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("Nombre.txt")));
-            String texto = fin.readLine();
-            nombre = texto;
-            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
-            //this.nombre = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
-
-    private void leerFicheroTelefono() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("Telefono.txt")));
-            String texto = fin.readLine();
-            telefono = texto;
-            // tv1.setText(texto);
-            //  this.nombre = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
-
-    private void leerFicheroDPI() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("DPI.txt")));
-            String texto = fin.readLine();
-            dpi = texto;
-            // tv1.setText(texto);
-            //  this.nombre = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
 
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -317,11 +268,13 @@ public class MainActivity extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject();
             try {
+                SharedPreferences nombre = getSharedPreferences("datos",Context.MODE_PRIVATE);
+                SharedPreferences telefono = getSharedPreferences("datos",Context.MODE_PRIVATE);
 
-                jsonObject.put("dpi", dpi);
+            //    jsonObject.put("dpi", dpi);
 
-                jsonObject.put("nombre", nombre);
-                jsonObject.put("telefono", telefono);
+                jsonObject.put("nombre", nombre.getString("name",""));
+                jsonObject.put("telefono", telefono.getString("phone",""));
                 jsonObject.put("coordenadas", coor);
                 jsonObject.put("direccion", dir);
                 jsonObject.put("emergencia", emergencia);
@@ -579,14 +532,30 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
+    int val=1;
+
+    //Clase para mostrar si esta conectado a la red
     private void onNetworkChange(NetworkInfo networkInfo) {
+        isOnlineNet();
+
         if (networkInfo != null) {
             if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
                 Log.d("MenuActivity", "CONNECTED");
-                Toast.makeText(this,"Conectado a internet",Toast.LENGTH_SHORT).show();
+
+
+
+               if (val != 1){
+                    Toast.makeText(this, "Conectado a internet", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                   Toast.makeText(this, "No tiene acceso a internet", Toast.LENGTH_SHORT).show();
+               }
+
+                //Toast.makeText(this,"Conectado a internet",Toast.LENGTH_SHORT).show();
             } else {
                 Log.d("MenuActivity", "DISCONNECTED");
-                Toast.makeText(this,"No Conectado",Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this,"No Conectado a Internet",Toast.LENGTH_SHORT).show();
             }
         }
         else{
@@ -594,5 +563,24 @@ public class MainActivity extends AppCompatActivity {
             // finish();
         }
     }
+
+    public Boolean isOnlineNet() {
+
+        try {
+            Process p = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.es");
+
+             val           = p.waitFor();
+            boolean reachable = (val == 0);
+            return reachable;
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+
 
 }

@@ -3,6 +3,7 @@ package com.example.wer.appclient.interfaces;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -53,9 +54,6 @@ public class BuscarPersona extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        //Lee el nombre almacenado en el registro
-        leerFicheroNombre();
-        leerFicheroTelefono();
     }
 
     @Override
@@ -182,37 +180,8 @@ public class BuscarPersona extends AppCompatActivity {
         }
     }
 
-    private void leerFicheroNombre() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("Nombre.txt")));
-            String texto = fin.readLine();
-            nombre = texto;
-            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
-            //this.nombre = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
 
-    private void leerFicheroTelefono() {
-        try {
-            BufferedReader fin =
-                    new BufferedReader(
-                            new InputStreamReader(
-                                    openFileInput("Telefono.txt")));
-            String texto = fin.readLine();
-            telefono = texto;
-            //Toast.makeText(this, "Nombre: " +nombre,Toast.LENGTH_SHORT).show();
-            //this.nombre = texto;
-            fin.close();
-        } catch (Exception ex) {
-            Log.e("Ficheros", "Error al leer fichero desde memoria interna");
-        }
-    }
+
 
     //get personas
     public class getPersonas extends AsyncTask<String, Void, String> {
@@ -225,6 +194,7 @@ public class BuscarPersona extends AppCompatActivity {
         }
 
         public void onPostExecute(String result) {
+
             if (result.isEmpty()) {
                 Toast.makeText(BuscarPersona.this, "No se generaron resultados Revisar Conexion", Toast.LENGTH_LONG).show();
             } else {
@@ -234,9 +204,11 @@ public class BuscarPersona extends AppCompatActivity {
                 //personas_aux = personas; //Asigna todos los datos al Array persona_aux
                 //Filtra por nombre guardado en el fichero
 
+                SharedPreferences telefono = getSharedPreferences("datos", Context.MODE_PRIVATE);
+
 
                 for(int i=0; i< personas.size(); i++) {
-                    if (personas.get(i).getTelefono().equals(telefono)) {
+                    if (personas.get(i).getTelefono().equals(telefono.getString("phone",""))) {
                         personas_aux.add(personas.get(i));
                     }
                 }
