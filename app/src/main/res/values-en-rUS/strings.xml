@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FIREFIGHTER</string>
+    <string name="app_name">FirefightersVSP</string>
     <string name="incendios">Fires</string>
     <string name="idioma">Language</string>
     <string name="salir">Exit</string>

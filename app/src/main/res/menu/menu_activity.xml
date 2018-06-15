@@ -2,41 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-
-    <item android:id="@+id/action_alertas"
-        android:title="@string/registro_de_alertas"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
-
     <item android:id="@+id/action_pagina_web"
         android:title="@string/pagina_web"
         android:orderInCategory="100"
         app:showAsAction="never" />
-
-    <item android:id="@+id/action_historia"
-        android:title="@string/historia"
+    <item android:id="@+id/action_alertas"
+        android:title="@string/registro_de_alertas"
         android:orderInCategory="100"
         app:showAsAction="never" />
-
-    <item android:id="@+id/action_quienes_somos"
-        android:title="@string/quienes_somos"
+    <item android:id="@+id/action_cambiar_idioma"
+        android:title="@string/idioma"
         android:orderInCategory="100"
         app:showAsAction="never" />
-
+    <item android:id="@+id/action_tutorial"
+        android:orderInCategory="100"
+        android:title="@string/tutorial"
+        app:showAsAction="never" />
     <item android:id="@+id/action_desarrolladores"
         android:title="@string/desarrolladores"
         android:orderInCategory="100"
-        app:showAsAction="never" />
-
-    <item android:id="@+id/action_cambiar_idioma"
-        android:title="@string/idioma"
-        android:orderInCategory="200"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_tutorial"
-        android:orderInCategory="200"
-        android:title="@string/tutorial"
         app:showAsAction="never" />
     <item android:id="@+id/action_salir"
         android:title="@string/salir"

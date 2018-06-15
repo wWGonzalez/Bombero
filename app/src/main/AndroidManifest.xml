@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wer.KeepThink">
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="app.keepthink.user.KeepThink.interfaces.MainActivity"></activity>
+        <activity
+            android:name="app.keepthink.user.KeepThink.interfaces.MainActivity">
+        </activity>
         <activity
             android:name="app.keepthink.user.KeepThink.interfaces.SplashScreen"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,22 +29,17 @@
             android:name="app.keepthink.user.KeepThink.interfaces.crearRegistro"
             android:label="Registrar Datos"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name="app.keepthink.user.KeepThink.interfaces.MenuEmergente" />
         <activity
-            android:name="app.keepthink.user.KeepThink.interfaces.Historia"
-            android:label="Historia" />
+            android:name="app.keepthink.user.KeepThink.interfaces.MenuEmergente" />
         <activity
             android:name="app.keepthink.user.KeepThink.interfaces.desarrolladores"
             android:label="Desarrolladores" />
         <activity
-            android:name="app.keepthink.user.KeepThink.interfaces.quienes_somos"
-            android:label="¿Quienes Somos?" />
-
+            android:name="app.keepthink.user.KeepThink.interfaces.tuto"
+            android:label="Tutorial">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <activity android:name="app.keepthink.user.KeepThink.interfaces.tuto"></activity>
     </application>
-
 </manifest>

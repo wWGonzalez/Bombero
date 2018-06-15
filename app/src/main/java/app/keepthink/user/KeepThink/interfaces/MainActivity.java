@@ -74,14 +74,11 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout3;
     LinearLayout linearLayout4;
     LinearLayout linearLayout5;
-
     LinearLayout mainGrid;
     Menu menu;
     //Variables para Post
     public String emergencia;
     Persona persona;
-
-
     String id_persona;
     String dir; //Se almacena la direccion
     String coor; //Se almacenan las coordenadas
@@ -95,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mainGrid = (LinearLayout) findViewById(R.id.mainGrid);
         linearLayout0 = findViewById(R.id.linear_0);
         linearLayout1 = findViewById(R.id.linear_1);
@@ -107,24 +103,18 @@ public class MainActivity extends AppCompatActivity {
         setLiner1(linearLayout1);
         setLiner2(linearLayout2);
         setLiner3(linearLayout3);
-
         //setToggleEvent(mainGrid);
         Bundle bundle = getIntent().getExtras();
         //tv1 = findViewById(R.id.txtUSer);
         //tv1.setText(dato); //Muestra el usuario
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
             locationStart();
         }
-
         SharedPreferences nombre = getSharedPreferences("datos", Context.MODE_PRIVATE);
         Toast.makeText(this,"Bienvendio "+nombre.getString("name",""), Toast.LENGTH_SHORT).show();
-
-
     }//Finish onCreate
-
     private void showDialog(){
         AlertDialog.Builder b = new AlertDialog.Builder(this);
         b.setTitle(getResources().getString(R.string.idioma));
@@ -179,14 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 return true;
-            case R.id.action_historia:
-                //crear nuevo aviso
-                abrir_hitoria(null);
-                return true;
-            case R.id.action_quienes_somos:
-                //crear nuevo aviso
-                abrir_quienes_somos(null);
-                return true;
             case R.id.action_desarrolladores:
                 //crear nuevo aviso
                 abrir_desarrolladores(null);
@@ -205,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
         }
     }
-
-
     private void locationStart() {
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         MainActivity.Localizacion Local = new MainActivity.Localizacion();
@@ -263,9 +243,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 SharedPreferences nombre = getSharedPreferences("datos",Context.MODE_PRIVATE);
                 SharedPreferences telefono = getSharedPreferences("datos",Context.MODE_PRIVATE);
-
-            //    jsonObject.put("dpi", dpi);
-
+            //  jsonObject.put("dpi", dpi);
                 jsonObject.put("nombre", nombre.getString("name",""));
                 jsonObject.put("telefono", telefono.getString("phone",""));
                 jsonObject.put("coordenadas", coor);
@@ -285,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }
-
         public void onPostExecute(Boolean result){
             if(result){
                 Toast.makeText(MainActivity.this, "Alerta Enviada", Toast.LENGTH_LONG).show();
@@ -493,16 +470,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void abrir_quienes_somos(View view){
-        Intent intent = new Intent(MainActivity.this, quienes_somos.class);
-        startActivity(intent);
-    }
-
-    public void abrir_hitoria(View view){
-        Intent intent = new Intent(MainActivity.this, Historia.class);
-        startActivity(intent);
-    }
-
     private BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -511,7 +478,6 @@ public class MainActivity extends AppCompatActivity {
             onNetworkChange(ni);
         }
     };
-
 
     @Override
     protected void onPause() {
@@ -534,9 +500,6 @@ public class MainActivity extends AppCompatActivity {
         if (networkInfo != null) {
             if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
                 Log.d("MenuActivity", "CONNECTED");
-
-
-
                if (val != 1){
                   //  Toast.makeText(this, "Conectado a internet", Toast.LENGTH_SHORT).show();
                 }
@@ -572,8 +535,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
-
-
 }

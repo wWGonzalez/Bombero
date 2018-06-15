@@ -1,23 +1,19 @@
 <resources>
-    <string name="app_name">Firefighter</string>
+    <string name="app_name">BomberosVSP</string>
     <string name="title_activity_buscar_persona">BuscarPersona</string>
-
     <string name="str_en">Inglés</string>
     <string name="str_es">Español</string>
     <string name="str_mam">Mam</string>
-
     //Menu Principal
     <string name="alerta">Alerta</string>
     <string name="maternidad">Maternidad</string>
     <string name="accidentes">Accidentes</string>
     <string name="incendios">Incendios</string>
     <string name="primeros_auxilios">Primeros Auxilios</string>
-
     //Crear registro
     <string name="nombre_usuario">Nombre de Usuario</string>
     <string name="numero_telefono">Número Teléfonico</string>
     <string name="guardar">Guardar</string>
-
     //Boton superior derecho
     <string name="button_send">Send</string>
     <string name="pagina_web">Pagina Web</string>
@@ -28,23 +24,17 @@
     <string name="idioma">Idioma</string>
     <string name="tutorial">Tutorial</string>
     <string name="salir">Salir</string>
-
     //menu emergente
     <string name="desea_enviar_alerta">¿Desea Enviar la Alerta?</string>
     <string name="aceptar">ACEPTAR</string>
     <string name="cancelar">CANCELAR</string>
-
     <string-array name="languages">
         <item>@string/str_en</item>
         <item>@string/str_es</item>
         <item>@string/str_mam</item>
-
     </string-array>
-
     //Desarrolladores
-
     <string name="titulo1">Equipo de trabajo</string>
     <string name="l1">Aplicacion mobil creada para que las personas puedan</string>
     <string name="l2">alertartar a los bomberos de manera precisa y oportuna</string>
-
 </resources>

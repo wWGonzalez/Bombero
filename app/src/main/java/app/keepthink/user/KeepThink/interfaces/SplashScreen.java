@@ -9,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +29,7 @@ public class SplashScreen extends AppCompatActivity {
             // Intent o = new Intent(this,PersonaFormulario.class);
             // startActivity(o);
         }
-       ;
+
     }
 
 

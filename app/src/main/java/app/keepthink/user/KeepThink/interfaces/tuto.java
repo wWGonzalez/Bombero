@@ -1,5 +1,4 @@
 package app.keepthink.user.KeepThink.interfaces;
-
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wer.KeepThink.R;
-
 public class tuto extends AppCompatActivity {
-
     private ViewPager mSlideViewPager;
     private LinearLayout mDotLayout;
     private SliderAdapter sliderAdapter;
@@ -27,7 +24,6 @@ public class tuto extends AppCompatActivity {
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
     }
-
     public void addDotsIndicator(){
         mDots =new TextView[3];
         for(int i=0; i<mDots.length; i++){
@@ -38,7 +34,6 @@ public class tuto extends AppCompatActivity {
             mDotLayout.addView(mDots[i]);
         }
     }
-
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {

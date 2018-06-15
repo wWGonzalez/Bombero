@@ -12,7 +12,6 @@ public class Persona {
     String coordenadas;
     String direccion;
     String emergencia;
-
     /*
     public String getDpi() {
         return dpi;
@@ -22,7 +21,6 @@ public class Persona {
         this.dpi = dpi;
     }
     */
-
 
     public String getNombre() {
         return nombre;
