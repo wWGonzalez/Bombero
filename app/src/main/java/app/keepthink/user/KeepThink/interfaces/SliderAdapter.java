@@ -1,4 +1,4 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.wer.appclient.R;
+import com.example.wer.KeepThink.R;
 
 public class SliderAdapter extends PagerAdapter{
 

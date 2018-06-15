@@ -1,4 +1,4 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -27,9 +27,6 @@ import android.os.AsyncTask;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,16 +36,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.wer.appclient.R;
+import com.example.wer.KeepThink.R;
 //import com.example.wer.appclient.clases.Archivo;
-import com.example.wer.appclient.clases.Persona;
+import app.keepthink.user.KeepThink.clases.Persona;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -56,9 +51,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Locale;
 
@@ -545,7 +538,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                if (val != 1){
-                    Toast.makeText(this, "Conectado a internet", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(this, "Conectado a internet", Toast.LENGTH_SHORT).show();
                 }
                 else{
                    Toast.makeText(this, "No tiene acceso a internet", Toast.LENGTH_SHORT).show();
@@ -555,7 +548,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Log.d("MenuActivity", "DISCONNECTED");
 
-                Toast.makeText(this,"No Conectado a Internet",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this,"No Conectado a Internet",Toast.LENGTH_SHORT).show();
             }
         }
         else{

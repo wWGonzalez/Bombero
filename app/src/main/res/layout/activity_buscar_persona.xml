@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wer.appclient.interfaces.BuscarPersona">
+    tools:context="com.example.wer.KeepThink.app.example.wer.KeepThink.interfaces.BuscarPersona">
 
     <ListView
         android:id="@+id/listViewPersonas"

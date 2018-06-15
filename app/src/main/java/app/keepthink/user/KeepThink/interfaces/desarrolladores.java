@@ -1,4 +1,4 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.wer.appclient.R;
+import com.example.wer.KeepThink.R;
 
 public class desarrolladores extends AppCompatActivity {
 

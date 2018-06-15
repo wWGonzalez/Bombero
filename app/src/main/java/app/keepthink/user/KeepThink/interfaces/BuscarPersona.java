@@ -1,4 +1,4 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,21 +18,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.wer.appclient.R;
-import com.example.wer.appclient.clases.HttpRequest;
-import com.example.wer.appclient.clases.Persona;
-import com.example.wer.appclient.clases.PersonaAdapter;
+import com.example.wer.KeepThink.R;
+import app.keepthink.user.KeepThink.clases.HttpRequest;
+import app.keepthink.user.KeepThink.clases.Persona;
+import app.keepthink.user.KeepThink.clases.PersonaAdapter;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;

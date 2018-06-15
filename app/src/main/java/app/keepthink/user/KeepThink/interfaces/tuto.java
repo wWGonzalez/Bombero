@@ -1,4 +1,4 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.wer.appclient.R;
+import com.example.wer.KeepThink.R;
 
 public class tuto extends AppCompatActivity {
 

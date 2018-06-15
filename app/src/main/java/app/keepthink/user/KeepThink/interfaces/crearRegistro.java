@@ -1,22 +1,14 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.wer.appclient.R;
-import com.example.wer.appclient.clases.Persona;
-import com.example.wer.appclient.interfaces.MainActivity;
-
-import java.io.OutputStreamWriter;
-import java.text.Normalizer;
+import com.example.wer.KeepThink.R;
 
 public class crearRegistro extends AppCompatActivity {
 

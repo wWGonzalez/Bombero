@@ -1,4 +1,4 @@
-package com.example.wer.appclient;
+package app.keepthink.user.KeepThink;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

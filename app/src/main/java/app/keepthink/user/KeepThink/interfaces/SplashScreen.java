@@ -1,16 +1,10 @@
-package com.example.wer.appclient.interfaces;
+package app.keepthink.user.KeepThink.interfaces;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 
 
 public class SplashScreen extends AppCompatActivity {

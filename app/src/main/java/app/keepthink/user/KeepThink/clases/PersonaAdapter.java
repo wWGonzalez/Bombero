@@ -1,4 +1,4 @@
-package com.example.wer.appclient.clases;
+package app.keepthink.user.KeepThink.clases;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.example.wer.appclient.R;
+import com.example.wer.KeepThink.R;
 import java.util.ArrayList;
 /**
  * Created by wer on 29/03/2018.
